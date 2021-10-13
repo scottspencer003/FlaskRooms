@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import json
 import os
 
@@ -53,7 +53,7 @@ def clear():
         with open(jsonFile, "w+") as f:
             json.dump(data, f, indent=2)
         f.close()
-        return render_template('tests.html', data=data)
+    return redirect(request.referrer)
 
 
 
