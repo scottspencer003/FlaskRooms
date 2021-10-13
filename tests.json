@@ -1,0 +1,104 @@
+{
+  "rooms": [
+    {
+      "room": 1,
+      "room_name": "room one",
+      "occupied": true,
+      "patient_name": "John Smith",
+      "patient_insurance": "Medicare",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "9/21/2021"
+    },
+    {
+      "room": 2,
+      "room_name": "room two",
+      "occupied": true,
+      "patient_name": "Sam Magro",
+      "patient_insurance": "Tufts",
+      "loc": "",
+      "visitors": "All",
+      "admission_date": "10/1/2021"
+    },
+    {
+      "room": 3,
+      "room_name": "room three",
+      "occupied": true,
+      "patient_name": "Dave Babcock",
+      "patient_insurance": "BC/BS",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "10/5/2021"
+    },
+    {
+      "room": 4,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": null,
+      "loc": "",
+      "visitors": "",
+      "admission_date": ""
+    },
+        {
+      "room": 5,
+      "room_name": "room four",
+      "occupied": true,
+      "patient_name": "Sam Sherwood",
+      "patient_insurance": "Tufts",
+      "loc": "",
+      "visitors": "All",
+      "admission_date": "10/9/2021"
+    },
+        {
+      "room": 6,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": null,
+      "loc": "",
+      "visitors": "",
+      "admission_date": ""
+    },
+        {
+      "room": 7,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": null,
+      "loc": "",
+      "visitors": "",
+      "admission_date": ""
+    },
+        {
+      "room": 8,
+      "room_name": "room eight",
+      "occupied": true,
+      "patient_name": "Hope Drysdale",
+      "patient_insurance": "Medicare",
+      "loc": "",
+      "visitors": "All",
+      "admission_date": "10/11/2021"
+    },
+        {
+      "room": 9,
+      "room_name": "room nine",
+      "occupied": true,
+      "patient_name": "Addison Wadman",
+      "patient_insurance": "Tufts",
+      "loc": "",
+      "visitors": "All",
+      "admission_date": "9/27/2021"
+    },
+        {
+      "room": 10,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": null,
+      "loc": "",
+      "visitors": "",
+      "admission_date": ""
+    }
+  ]
+}

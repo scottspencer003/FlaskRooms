@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>For loop test</title>
+    <meta http-equiv="refresh" content="60">
+</head>
+
+<style>
+    body {
+        background-color: #b3cccc;
+    }
+
+    .styled-table {
+        border-collapse: collapse;
+        #margin: 25px 0;
+        margin-left: auto;
+        margin-right: auto;
+        font-size:0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    .styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+    .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .styled-table tbody tr:nth-of-type(odd) {
+        background-color: #ffffff;
+    }
+
+    .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+    }
+
+    .styled-table thbody tr.active-row {
+        font-weight: bold;
+        color: #009879;
+    }
+
+</style>
+
+<body>
+    <p>As of: <span id="date-time"></span></p>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <td>Room</td>
+                <td>Status</td>
+                <td>Patient Name</td>
+                <td>LOC</td>
+                <td>Visitors</td>
+                <td>Insurance</td>
+                <td>Admission Date</td>
+                <td>  </td>
+                <td>  </td>
+            </tr>
+        </thead>
+
+        {% for room in data['rooms'] %}
+
+        <tr class="active-row">
+            <td>{{ room['room']}}</td>
+            {% if room['occupied'] %}
+            <td>Occupied</td>
+            {% else %}
+            <td style="background-color: #aed7e6;">Vacant</td>
+            {% endif %}
+            <td>{{room['patient_name']}}</td>
+            <td>{{room['loc']}}</td>
+            <td>{{room['visitors']}}</td>
+            <td>{{room['patient_insurance']}}</td>
+            <td>{{room['admission_date']}}</td>
+            <td><form method="post"><input type="image" name="update" value="{{room['room']}}" src="static/user.png" alt="Update" width="16" height="16"></form></td>
+            <td><form action="/clear/" method="post"><input type="image" name="clear" value="{{room['room']}}" src="static/exit.png" alt="Clear" width="16" height="16"></form></td>
+
+            {%endfor%}
+        </tr>
+    </table>
+</body>
+
+<script>
+var dt = new Date();
+document.getElementById('date-time').innerHTML=dt;
+
+</script>
+</html>
