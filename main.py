@@ -29,7 +29,7 @@ def test():
 @app.route('/clear/', methods=['POST', 'GET'])
 def clear():
     if request.method == "POST":
-        room_num = request.form.get['clear']
+        room_num = request.form.get('clear')
         jsonFile = "tests.json"
         if os.path.exists(jsonFile):
             data = ""
@@ -43,17 +43,17 @@ def clear():
         for room in data['rooms']:
             if room['room'] == int(room_num):
                 room['patient_name'] = ""
-                room['occupied'] == false
-                room['patient_insurance'] == ""
-                room['visitors'] == ""
-                room['admission_date'] == ""
-                room['admission_date'] == ""
-                room['loc'] == ""
+                room['occupied'] = False
+                room['patient_insurance'] = ""
+                room['visitors'] = ""
+                room['admission_date'] = ""
+                room['admission_date'] = ""
+                room['loc'] = ""
 
         with open(jsonFile, "w+") as f:
-            json.dump(data, f)
+            json.dump(data, f, indent=2)
         f.close()
-    return render_template('tests.html', data=data)
+        return render_template('tests.html', data=data)
 
 
 

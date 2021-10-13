@@ -3,12 +3,12 @@
     {
       "room": 1,
       "room_name": "room one",
-      "occupied": true,
-      "patient_name": "John Smith",
-      "patient_insurance": "Medicare",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "9/21/2021"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": ""
     },
     {
       "room": 2,
@@ -40,7 +40,7 @@
       "visitors": "",
       "admission_date": ""
     },
-        {
+    {
       "room": 5,
       "room_name": "room four",
       "occupied": true,
@@ -50,7 +50,7 @@
       "visitors": "All",
       "admission_date": "10/9/2021"
     },
-        {
+    {
       "room": 6,
       "room_name": "room four",
       "occupied": false,
@@ -60,7 +60,7 @@
       "visitors": "",
       "admission_date": ""
     },
-        {
+    {
       "room": 7,
       "room_name": "room four",
       "occupied": false,
@@ -70,7 +70,7 @@
       "visitors": "",
       "admission_date": ""
     },
-        {
+    {
       "room": 8,
       "room_name": "room eight",
       "occupied": true,
@@ -80,17 +80,17 @@
       "visitors": "All",
       "admission_date": "10/11/2021"
     },
-        {
+    {
       "room": 9,
       "room_name": "room nine",
-      "occupied": true,
-      "patient_name": "Addison Wadman",
-      "patient_insurance": "Tufts",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
       "loc": "",
-      "visitors": "All",
-      "admission_date": "9/27/2021"
+      "visitors": "",
+      "admission_date": ""
     },
-        {
+    {
       "room": 10,
       "room_name": "room four",
       "occupied": false,
