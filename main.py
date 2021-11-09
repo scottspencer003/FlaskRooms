@@ -22,6 +22,9 @@ app = Flask(__name__)
 @app.route('/', methods=['POST', 'GET'])
 def display():
     jsonFile = "rooms.json"
+    waitlistGIPFile = "waitListGIP.json"
+    waitlistRespiteFile = "waitListRespite.json"
+
     if os.path.exists(jsonFile):
         data = ""
         try:
@@ -30,7 +33,33 @@ def display():
             f.close()
         except:
             file_data = "could not read file"
-        return render_template('view.html', data=data)
+
+    if os.path.exists(waitlistGIPFile):
+        waitData = ""
+        try:
+            with open(waitlistGIPFile) as f:
+                waitData = json.load(f)
+            f.close()
+        except:
+            file_data = "could not read file"
+
+    if os.path.exists(waitlistRespiteFile):
+        respData = ""
+        try:
+            with open(waitlistRespiteFile) as f:
+                respData = json.load(f)
+            f.close()
+        except:
+            file_data = "could not read file"
+
+    return render_template('view.html', data=data, waitData=waitData, respData=respData)
+
+
+    # paths = ["rooms.json", "waitListGIP.json"]
+    # for path in paths:
+    #     if os.path.exists(path):
+
+
 
 #route set to the exit button that will clear the patient data for that room and change the status to vacant
 @app.route('/clear/', methods=['POST', 'GET'])
@@ -73,7 +102,7 @@ def update():
 @app.route("/addPatient/", methods=["GET", "POST"])
 def addPatient():
     if request.method == "POST":
-        room_num = request.form.get('room')
+        room_num = request.form.get('update')
         jsonFile = "rooms.json"
         if os.path.exists(jsonFile):
             data = ""
@@ -100,8 +129,12 @@ def addPatient():
     return redirect(url_for('display'))
 
 
+# @app.route("/movePatient/", methods=["GET", "POST"])
+# def movePatient():
+#     if request.method == "POST":
+#         room_num = request.form.get('moveToRoom')
+#         patientInfo = request.form.get('patient')
+#
+#     return redirect(url_for('display'))
 
-
-
-
-app.run(use_reloader = True, debug = True)
+app.run(use_reloader=True, debug=True)

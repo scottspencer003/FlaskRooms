@@ -7,32 +7,22 @@
       "patient_name": "Scott Spencer",
       "patient_insurance": "Tufts",
       "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "10/25/2021"
+      "visitors": "Restricted",
+      "admission_date": "10/27/2021"
     },
     {
       "room": 2,
       "room_name": "room two",
-      "occupied": false,
-      "patient_name": "",
+      "occupied": true,
+      "patient_name": "Scott Spencer",
       "patient_insurance": "",
       "loc": "",
-      "visitors": "",
-      "admission_date": ""
+      "visitors": "All",
+      "admission_date": "10/25/2021"
     },
     {
       "room": 3,
       "room_name": "room three",
-      "occupied": true,
-      "patient_name": "Dave Babcock",
-      "patient_insurance": "BC/BS",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "10/5/2021"
-    },
-    {
-      "room": 4,
-      "room_name": "room four",
       "occupied": false,
       "patient_name": "",
       "patient_insurance": "",
@@ -41,24 +31,34 @@
       "admission_date": ""
     },
     {
-      "room": 5,
+      "room": 4,
       "room_name": "room four",
       "occupied": true,
-      "patient_name": "Sam Sherwood",
+      "patient_name": "Test Patient",
       "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "Restricted",
+      "admission_date": "09/01/2021"
+    },
+    {
+      "room": 5,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
       "loc": "",
-      "visitors": "All",
-      "admission_date": "10/9/2021"
+      "visitors": "",
+      "admission_date": ""
     },
     {
       "room": 6,
       "room_name": "room four",
       "occupied": true,
-      "patient_name": "Sadie",
-      "patient_insurance": "Tufts",
-      "loc": "routine/PP",
+      "patient_name": "Test Patient",
+      "patient_insurance": "Medicare",
+      "loc": "Routine/PP",
       "visitors": "All",
-      "admission_date": "10/06/2021"
+      "admission_date": "10/28/2021"
     },
     {
       "room": 7,
