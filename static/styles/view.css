@@ -9,7 +9,7 @@
         margin-right: auto;
         font-size:0.9em;
         font-family: sans-serif;
-        width: 80%;
+        width: 95%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
     }
 
@@ -91,7 +91,7 @@
     }
 
     .current-date {
-        margin-left: 10%;
+        margin-left: 2.4%;
         color: #ffffff;
         font-size: 18px;
         font-weight: bold;

@@ -94,25 +94,25 @@
                 <div class="form-row">
                     <div class="form-group col-md-8">
                         <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" required>
+                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="{{room['patient_name']}}" required>
                     </div>
                     <div class="form-group col-md-4"> <!-- Date input -->
                         <label class="control-label" for="date">Admission Date</label>
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" required/>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="{{room['admission_date']}}" required/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputLOC">LOC</label>
-                        <input type="text" class="form-control" id="inputLOC" name="inputLOC">
+                        <input type="text" class="form-control" id="inputLOC" name="inputLOC" value="{{room['loc']}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputInsurance">Insurance</label>
-                        <input type="text" class="form-control" id="inputInsurance" name="inputInsurance">
+                        <input type="text" class="form-control" id="inputInsurance" name="inputInsurance" value="{{room['patient_insurance']}}" >
                 </div>
                     <div class="form-group col-md-4">
                         <label for="inputVisitors">Visitors</label>
-                        <select id="inputVisitors" class="form-control" name="inputVisitors">
+                        <select id="inputVisitors" class="form-control" name="inputVisitors" value="{{room['visitors']}}">
                             <option>
                                 <option  selected value="All">All</option>
                                 <option value="Restricted">Restricted</option>

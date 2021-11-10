@@ -22,7 +22,10 @@ def read_file_data(json_file):
 
 def clear_wait_slot(json_file, slot_num):
     """
-    Accepts the wait list json file and a slot number then clears the data from it
+    Clears the data from a slot in the waitlist
+
+    :param json_file: full path of the waitlist json file
+    :param slot_num: the slot number that needs to be cleared
     :return:
     """
     data = read_file_data(json_file)
