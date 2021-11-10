@@ -2,31 +2,31 @@
   "waitList": [
     {
       "slot": 1,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 2,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 3,
       "occupied": true,
       "patient_name": "Scott Spencer",
@@ -39,20 +39,20 @@
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 4,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 5,
       "occupied": true,
       "patient_name": "Scott Spencer",
@@ -65,7 +65,7 @@
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 6,
       "occupied": true,
       "patient_name": "Scott Spencer",
@@ -78,7 +78,7 @@
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 7,
       "occupied": true,
       "patient_name": "Scott Spencer",
@@ -91,41 +91,41 @@
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 8,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 9,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""
     },
-        {
+    {
       "slot": 10,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
       "currentLocation": "",
-      "visitors": "All",
-      "waitListAddedDate": "10/25/2021",
+      "visitors": "",
+      "waitListAddedDate": "",
       "approvedBy": "",
       "contact": "",
       "comments": ""

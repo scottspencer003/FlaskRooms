@@ -43,12 +43,12 @@
     {
       "room": 5,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": ""
+      "occupied": true,
+      "patient_name": "Test Patient 2",
+      "patient_insurance": "Tufts",
+      "loc": "Test",
+      "visitors": "All",
+      "admission_date": "11/09/2021"
     },
     {
       "room": 6,
@@ -74,11 +74,11 @@
       "room": 8,
       "room_name": "room eight",
       "occupied": true,
-      "patient_name": "Hope Drysdale",
-      "patient_insurance": "Medicare",
-      "loc": "",
-      "visitors": "All",
-      "admission_date": "10/11/2021"
+      "patient_name": "Test Patient",
+      "patient_insurance": "BC/BS",
+      "loc": "Routine",
+      "visitors": "Restricted",
+      "admission_date": "10/07/2021"
     },
     {
       "room": 9,
