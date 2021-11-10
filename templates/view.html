@@ -173,7 +173,7 @@
             <td>{{wait['comments']}}</td>
             <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
             <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-            <td><form action="" method="post"><input type="submit" name="clear" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+            <td><form action="/clearGIPSlot/" method="post"><input type="submit" name="clearGIPSlot" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
 
 
             {%endfor%}

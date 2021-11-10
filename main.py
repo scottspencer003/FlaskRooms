@@ -58,6 +58,16 @@ def clear():
         f.close()
     return redirect(request.referrer)
 
+@app.route('/clearGIPSlot/', methods=['POST', 'GET'])
+def clearSlot():
+    if request.method == "POST":
+        slot_num = request.form.get('clearGIPSlot')
+        jsonFile = "waitListGIP.json"
+        utils.clear_wait_slot(jsonFile, slot_num)
+        return redirect(request.referrer)
+
+
+
 #route that controls the patient update button. Takes the current room number and redirects to the patient form
 @app.route('/updatePatient/', methods=['POST', 'GET'])
 def update():
