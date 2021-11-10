@@ -15,49 +15,23 @@ room and set the room to vacant status
 from flask import Flask, render_template, request, redirect, url_for
 import json
 import os
+import utils
 
 app = Flask(__name__)
 
 #main page route that displays the rooms/patients
 @app.route('/', methods=['POST', 'GET'])
 def display():
-    jsonFile = "rooms.json"
-    waitlistGIPFile = "waitListGIP.json"
-    waitlistRespiteFile = "waitListRespite.json"
+    rooms = "rooms.json"
+    waitGIP = "waitListGIP.json"
+    waitResp = "waitListRespite.json"
 
-    if os.path.exists(jsonFile):
-        data = ""
-        try:
-            with open(jsonFile) as f:
-                data = json.load(f)
-            f.close()
-        except:
-            file_data = "could not read file"
+    rooms_data = utils.read_file_data(rooms)
+    wait_list_data = utils.read_file_data(waitGIP)
+    wait_list_respite = utils.read_file_data(waitResp)
 
-    if os.path.exists(waitlistGIPFile):
-        waitData = ""
-        try:
-            with open(waitlistGIPFile) as f:
-                waitData = json.load(f)
-            f.close()
-        except:
-            file_data = "could not read file"
+    return render_template('view.html', data=rooms_data, waitData=wait_list_data, respData=wait_list_respite)
 
-    if os.path.exists(waitlistRespiteFile):
-        respData = ""
-        try:
-            with open(waitlistRespiteFile) as f:
-                respData = json.load(f)
-            f.close()
-        except:
-            file_data = "could not read file"
-
-    return render_template('view.html', data=data, waitData=waitData, respData=respData)
-
-
-    # paths = ["rooms.json", "waitListGIP.json"]
-    # for path in paths:
-    #     if os.path.exists(path):
 
 
 
@@ -67,14 +41,7 @@ def clear():
     if request.method == "POST":
         room_num = request.form.get('clear')
         jsonFile = "rooms.json"
-        if os.path.exists(jsonFile):
-            data = ""
-            try:
-                with open(jsonFile) as f:
-                    data = json.load(f)
-                f.close()
-            except:
-                file_data = "could not read file"
+        data = utils.read_file_data(jsonFile)
 
         for room in data['rooms']:
             if room['room'] == int(room_num):
@@ -104,14 +71,7 @@ def addPatient():
     if request.method == "POST":
         room_num = request.form.get('update')
         jsonFile = "rooms.json"
-        if os.path.exists(jsonFile):
-            data = ""
-            try:
-                with open(jsonFile) as f:
-                    data = json.load(f)
-                f.close()
-            except:
-                file_data = "could not read file"
+        data = utils.read_file_data(jsonFile)
 
         for room in data['rooms']:
             if room['room'] == int(room_num):
