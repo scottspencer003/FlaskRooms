@@ -22,13 +22,10 @@ app = Flask(__name__)
 #main page route that displays the rooms/patients
 @app.route('/', methods=['POST', 'GET'])
 def display():
-    rooms = "rooms.json"
-    waitGIP = "waitListGIP.json"
-    waitResp = "waitListRespite.json"
 
-    rooms_data = utils.read_file_data(rooms)
-    wait_list_data = utils.read_file_data(waitGIP)
-    wait_list_respite = utils.read_file_data(waitResp)
+    rooms_data = utils.read_file_data("rooms.json")
+    wait_list_data = utils.read_file_data("waitListGIP.json")
+    wait_list_respite = utils.read_file_data("waitListRespite.json")
 
     return render_template('view.html', data=rooms_data, waitData=wait_list_data, respData=wait_list_respite)
 
@@ -40,22 +37,8 @@ def display():
 def clear():
     if request.method == "POST":
         room_num = request.form.get('clear')
-        jsonFile = "rooms.json"
-        data = utils.read_file_data(jsonFile)
+        utils.clear_room(room_num)
 
-        for room in data['rooms']:
-            if room['room'] == int(room_num):
-                room['patient_name'] = ""
-                room['occupied'] = False
-                room['patient_insurance'] = ""
-                room['visitors'] = ""
-                room['admission_date'] = ""
-                room['admission_date'] = ""
-                room['loc'] = ""
-
-        with open(jsonFile, "w+") as f:
-            json.dump(data, f, indent=2)
-        f.close()
     return redirect(request.referrer)
 
 @app.route('/clearGIPSlot/', methods=['POST', 'GET'])
@@ -91,6 +74,7 @@ def addPatient():
                 room['visitors'] = request.form.get("inputVisitors")
                 room['admission_date'] = request.form.get("date")
                 room['loc'] = request.form.get("inputLOC")
+                room['comment'] = request.form.get("inputComment")
 
         with open(jsonFile, "w+") as f:
             json.dump(data, f, indent=2)
