@@ -16,283 +16,227 @@
    </head>
 
 
-<body>
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #006652;">
-      <!-- Brand -->
-      <a class="navbar-brand" href="#">Patient Stay</a>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #006652;">
+          <!-- Brand -->
+          <a class="navbar-brand" href="#">Patient Stay</a>
 
-      <!-- Links -->
-      <ul class="nav navbar-nav navbar-right">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Admin</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Edit</a>
-        </li>
+          <!-- Links -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Edit</a>
+            </li>
 
-        <!-- Dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Location
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Kaplan House</a>
-            <a class="dropdown-item" href="#">Lincoln House</a>
-          </div>
-        </li>
-      </ul>
-
-    </nav>
-    <br />
-    <div class="current-date"><p>As of: <span id="date-time"></span></p></div>
-    <br />
-
-    <table class="styled-table">
-        <thead>
-            <tr>
-                <td>Room</td>
-                <td>Status</td>
-                <td>Patient Name</td>
-                <td>LOC</td>
-                <td>Visitors</td>
-                <td>Insurance</td>
-                <td>Admission Date</td>
-                <td>Comment</td>
-                <td>  </td>
-                <td>  </td>
-            </tr>
-        </thead>
-
-        {% for room in data['rooms'] %}
-
-        <tr class="active-row">
-            <td>{{ room['room']}}</td>
-            {% if room['occupied'] == True %}
-            <td style="background-color: #ffbd99;">Occupied</td>
-            {% elif room['occupied'] == False %}
-            <td style="background-color: #aed7e6;">Vacant</td>
-            {% elif room['occupied'] == "closed" %}
-            <td style="background-color: #FF0000;">Closed</td>
-            {% endif %}
-            <td>{{room['patient_name']}}</td>
-            <td>{{room['loc']}}</td>
-            <td>{{room['visitors']}}</td>
-            <td>{{room['patient_insurance']}}</td>
-            <td>{{room['admission_date']}}</td>
-            <td>
-            {% if room['comment'] | length > 0 %}
-            <div class="openCom"><input type="image" id="comBtn" value="{{room['room']}}" onclick="passRoom(this.value)" src="static/comment.png" alt="Update" width="20" height="20"></div>
-            {% endif %}
-            </td>
-            <td><div class="openBtn"><input type="image" id="myBtn" value="{{room['room']}}" onclick="passRoom(this.value)" src="static/user.png" alt="Update" width="18" height="18"></div></td>
-
-            <!--            <td><form action="/updatePatient/" method="post"><input type="submit" name="update" value="{{room['room']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>-->
-            <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>
-
-            <div id="myModal" class="modal">
-
-              <!-- Update patient modal content -->
-              <div class="modal-content">
-                <span class="close">&times;</span>
-                  <br />
-                  <h3>Update Patient</h3>
-                  <br />
-                <div class="patient-form" id="patient-form">
-                <form action="/addPatient/" method="POST">
-                <div class="form-row">
-                    <div class="form-group col-md-8">
-                        <label for="inputName">Name</label>
-                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="{{room['patient_name']}}" required>
-                    </div>
-                    <div class="form-group col-md-4"> <!-- Date input -->
-                        <label class="control-label" for="date">Admission Date</label>
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="{{room['admission_date']}}" required/>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="inputLOC">LOC</label>
-                        <input type="text" class="form-control" id="inputLOC" name="inputLOC" value="{{room['loc']}}">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputInsurance">Insurance</label>
-                        <input type="text" class="form-control" id="inputInsurance" name="inputInsurance" value="{{room['patient_insurance']}}" >
-                </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputVisitors">Visitors</label>
-                        <select id="inputVisitors" class="form-control" name="inputVisitors" value="{{room['visitors']}}">
-                            <option>
-                                <option  selected value="All">All</option>
-                                <option value="Restricted">Restricted</option>
-                                <option value="None">None</option>
-                            </option>
-                        </select>
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <label for="inputComment">Comment</label>
-                        <textarea id="inputComment" class="form-control" name="inputComment" rows="3" value="{{room['comment']}}" ></textarea>
-                    </div>
-                    <br />
-
-                <button type="submit" name="update" id="update" value="" class="btn btn-primary">Submit</button>
-                </form>
-                </div>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                Location
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Kaplan House</a>
+                <a class="dropdown-item" href="#">Lincoln House</a>
               </div>
-            </div>
+            </li>
+          </ul>
 
-            {%endfor%}
-        </tr>
-    </table>
-    
+        </nav>
+        <br />
+        <div class="current-date"><p>As of: <span id="date-time"></span></p></div>
+        <br />
 
-    <br />
-    <br />
-    <div class="list-header"><h2>GIP Waitlist</h2></div>
-    <br />
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <td>Room</td>
+                    <td>Status</td>
+                    <td>Patient Name</td>
+                    <td>LOC</td>
+                    <td>Visitors</td>
+                    <td>Insurance</td>
+                    <td>Admission Date</td>
+                    <td>Comment</td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+            </thead>
 
+            {% for room in data['rooms'] %}
 
-     <table class="styled-table">
-        <thead>
-            <tr>
-                <td> </td>
-                <td>Patient Name</td>
-                <td>LOC</td>
-                <td>Current Location</td>
-                <td>Insurance</td>
-                <td>Date on Waitlist</td>
-                <td>Approved by:</td>
-                <td>Contact/RN</td>
-                <td>Comments</td>
-                <td>  </td>
-                <td>  </td>
-                <td>  </td>
+            <tr class="active-row">
+                <td>{{ room['room']}}</td>
+                {% if room['occupied'] == True %}
+                <td style="background-color: #ffbd99;">Occupied</td>
+                {% elif room['occupied'] == False %}
+                <td style="background-color: #aed7e6;">Vacant</td>
+                {% elif room['occupied'] == "closed" %}
+                <td style="background-color: #FF0000;">Closed</td>
+                {% endif %}
+                <td>{{room['patient_name']}}</td>
+                <td>{{room['loc']}}</td>
+                <td>{{room['visitors']}}</td>
+                <td>{{room['patient_insurance']}}</td>
+                <td>{{room['admission_date']}}</td>
+                <td>
+                {% if room['comment'] | length > 0 %}
+                <div class="openCom"><input type="image" id="comBtn"  value="{{room['room']}}" onclick="passRoom(this.value)" src="static/comment.png" alt="Update" width="20" height="20"></div>
+                {% endif %}
+                </td>
+                <td><div class="openBtn"><input type="image" id="myBtn" value="{{room['room']}}" onclick="passRoom({{room['room']}})" src="static/user.png" alt="Update" width="18" height="18"></div></td>
+
+                <!--            <td><form action="/updatePatient/" method="post"><input type="submit" name="update" value="{{room['room']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>-->
+                <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>
+
+                <div id="myModal" class="modal" id="room['room']">
+
+                  <!-- Update patient modal content -->
+                  <div class="modal-content">
+                    <span class="close">&times;</span>
+                      <br />
+                      <h3>Update Patient</h3>
+                      <br />
+                    <div class="patient-form" id="patient-form">
+                    <form action="/addPatient/" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="inputName">Name</label>
+                            <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="{{room['patient_name']}}" required>
+                        </div>
+                        <div class="form-group col-md-4"> <!-- Date input -->
+                            <label class="control-label" for="date">Admission Date</label>
+                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="{{room['admission_date']}}" required/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputLOC">LOC</label>
+                            <input type="text" class="form-control" id="inputLOC" name="inputLOC" value="{{room['loc']}}">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputInsurance">Insurance</label>
+                            <input type="text" class="form-control" id="inputInsurance" name="inputInsurance" value="{{room['patient_insurance']}}" >
+                    </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputVisitors">Visitors</label>
+                            <select id="inputVisitors" class="form-control" name="inputVisitors" value="{{room['visitors']}}">
+                                <option>
+                                    <option  selected value="All">All</option>
+                                    <option value="Restricted">Restricted</option>
+                                    <option value="None">None</option>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label for="inputComment">Comment</label>
+                            <textarea id="inputComment" class="form-control" name="inputComment" rows="3" value="{{room['comment']}}" >{{room['comment']}}</textarea>
+                        </div>
+                        <br />
+
+                    <button type="submit" name="update" id="update" value="" class="btn btn-primary">Submit</button>
+                    </form>
+                    </div>
+                  </div>
+                </div>
+
+                {%endfor%}
             </tr>
-        </thead>
+        </table>
 
-         {% for wait in waitData['waitList'] %}
-
-        <tr class="active-row">
-            <td>{{ wait['slot']}}</td>
-            <td>{{wait['patient_name']}}</td>
-            <td>{{wait['patient_insurance']}}</td>
-            <td>{{wait['loc']}}</td>
-            <td>{{wait['currentLocation']}}</td>
-            <td>{{wait['waitListAddedDate']}}</td>
-            <td>{{wait['approvedBy']}}</td>
-            <td>{{wait['contact']}}</td>
-            <td>{{wait['comments']}}</td>
-            <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-            <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-            <td><form action="/clearGIPSlot/" method="post"><input type="submit" name="clearGIPSlot" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+        <br />
+        <br />
+        <div class="list-header"><h2>GIP Waitlist</h2></div>
+        <br />
 
 
-            {%endfor%}
+         <table class="styled-table">
+            <thead>
+                <tr>
+                    <td> </td>
+                    <td>Patient Name</td>
+                    <td>LOC</td>
+                    <td>Current Location</td>
+                    <td>Insurance</td>
+                    <td>Date on Waitlist</td>
+                    <td>Approved by:</td>
+                    <td>Contact/RN</td>
+                    <td>Comments</td>
+                    <td>  </td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+            </thead>
 
-     </table>
+             {% for wait in waitData['waitList'] %}
 
-    <br />
-    <br />
-    <div class="list-header"><h2>Respite Waitlist</h2></div>
-    <br />
-
-
-     <table class="styled-table">
-        <thead>
-            <tr>
-                <td> </td>
-                <td>Patient Name</td>
-                <td>LOC</td>
-                <td>Current Location</td>
-                <td>Insurance</td>
-                <td>Date on Waitlist</td>
-                <td>Approved by:</td>
-                <td>Contact/RN</td>
-                <td>Comments</td>
-                <td>  </td>
-                <td>  </td>
-                <td>  </td>
-            </tr>
-        </thead>
-
-         {% for wait in respData['waitList'] %}
-
-        <tr class="active-row">
-            <td>{{ wait['slot']}}</td>
-            <td>{{wait['patient_name']}}</td>
-            <td>{{wait['patient_insurance']}}</td>
-            <td>{{wait['loc']}}</td>
-            <td>{{wait['currentLocation']}}</td>
-            <td>{{wait['waitListAddedDate']}}</td>
-            <td>{{wait['approvedBy']}}</td>
-            <td>{{wait['contact']}}</td>
-            <td>{{wait['comments']}}</td>
-            <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-            <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-            <td><form action="" method="post"><input type="submit" name="clear" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+            <tr class="active-row">
+                <td>{{ wait['slot']}}</td>
+                <td>{{wait['patient_name']}}</td>
+                <td>{{wait['patient_insurance']}}</td>
+                <td>{{wait['loc']}}</td>
+                <td>{{wait['currentLocation']}}</td>
+                <td>{{wait['waitListAddedDate']}}</td>
+                <td>{{wait['approvedBy']}}</td>
+                <td>{{wait['contact']}}</td>
+                <td>{{wait['comments']}}</td>
+                <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+                <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+                <td><form action="/clearGIPSlot/" method="post"><input type="submit" name="clearGIPSlot" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
 
 
-            {%endfor%}
+                {%endfor%}
 
-     </table>
-    <br />
-    <br />
-    <br />
-</body>
+         </table>
 
-<script>
-    var dt = new Date().toLocaleString();
-    document.getElementById('date-time').innerHTML=dt;
-
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-        date_input.datepicker({
-            format: 'mm/dd/yyyy',
-            container: container,
-            todayHighlight: true,
-            autoclose: true,
-        })
-    })
-
-        // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
-    var btn = document.getElementsByClassName("openBtn");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
+        <br />
+        <br />
+        <div class="list-header"><h2>Respite Waitlist</h2></div>
+        <br />
 
 
-    var showModal = function() {
-        modal.style.display = "block";
-    };
+         <table class="styled-table">
+            <thead>
+                <tr>
+                    <td> </td>
+                    <td>Patient Name</td>
+                    <td>LOC</td>
+                    <td>Current Location</td>
+                    <td>Insurance</td>
+                    <td>Date on Waitlist</td>
+                    <td>Approved by:</td>
+                    <td>Contact/RN</td>
+                    <td>Comments</td>
+                    <td>  </td>
+                    <td>  </td>
+                    <td>  </td>
+                </tr>
+            </thead>
 
-    function passRoom(roomValue) {
-        var updateButton = document.getElementById("update");
-        updateButton.value = roomValue
-    }
+             {% for wait in respData['waitList'] %}
 
-    for (var i = 0; i < btn.length; i++) {
-        btn[i].addEventListener('click', showModal, false);
-    }
+            <tr class="active-row">
+                <td>{{ wait['slot']}}</td>
+                <td>{{wait['patient_name']}}</td>
+                <td>{{wait['patient_insurance']}}</td>
+                <td>{{wait['loc']}}</td>
+                <td>{{wait['currentLocation']}}</td>
+                <td>{{wait['waitListAddedDate']}}</td>
+                <td>{{wait['approvedBy']}}</td>
+                <td>{{wait['contact']}}</td>
+                <td>{{wait['comments']}}</td>
+                <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+                <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+                <td><form action="" method="post"><input type="submit" name="clear" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
 
-    function myFunction() {
-      var x = document.getElementById("myTopnav");
-      if (x.className === "topnav") {
-        x.className += " responsive";
-      } else {
-        x.className = "topnav";
-      }
-    }
 
-</script>
+                {%endfor%}
+         </table>
+        <br />
+        <br />
+        <br />
 
-</script>
+    <script src= "{{ url_for('static',filename='js/view.js') }}"></script>
+    </body>
 </html>
