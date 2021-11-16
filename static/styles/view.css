@@ -84,6 +84,21 @@
       cursor: pointer;
     }
 
+        /* The Close Comment Button */
+    .closeComment {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .closeComment:hover,
+    .closeComment:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
     .list-header {
 
       margin-left: 10%;
