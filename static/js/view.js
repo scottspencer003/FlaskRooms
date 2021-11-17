@@ -46,6 +46,31 @@
     }
 
 
+
+//Comment Modal
+    // Get the modal
+    var commentModal = document.getElementById("comModal");
+
+    // Get the button that opens the modal
+    var btn2 = document.getElementsByClassName("openCom");
+
+    // Get the <span> element that closes the modal
+    var comSpan = document.getElementsByClassName("closeComment")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    comSpan.onclick = function() {
+      commentModal.style.display = "none";
+    }
+
+    var showComModal = function() {
+        commentModal.style.display = "block";
+    };
+
+    for (var i = 0; i < btn.length; i++) {
+        btn2[i].addEventListener('click', showComModal, false);
+    }
+
+
 //Function for the navigation bar
     function myFunction() {
       var x = document.getElementById("myTopnav");
@@ -55,3 +80,25 @@
         x.className = "topnav";
       }
     }
+
+
+//Ajax request for comment
+$('input').on('onClick', function(event) {
+
+		$.ajax({
+			data : {
+				room : $('#comBtn').val()
+			},
+			type : 'POST',
+			url : '/getComment'
+		})
+		.done(function(data) {
+
+			$('#displayComment').text(data).show();
+
+
+		});
+
+		event.preventDefault();
+
+	});

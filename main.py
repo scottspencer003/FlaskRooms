@@ -83,6 +83,16 @@ def addPatient():
     return redirect(url_for('display'))
 
 
+@app.route("/getComment", methods=["GET", "POST"])
+def getComment():
+    if request.method == "POST":
+        room_num = request.form.get('openCom')
+        rooms_data = utils.read_file_data("rooms.json")
+        for room in rooms_data['rooms']:
+            if room['room'] == int(room_num):
+                return room['comment']
+
+
 # @app.route("/movePatient/", methods=["GET", "POST"])
 # def movePatient():
 #     if request.method == "POST":
