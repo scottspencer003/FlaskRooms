@@ -48,27 +48,64 @@
 
 
 //Comment Modal
-    // Get the modal
-    var commentModal = document.getElementById("comModal");
+//    // Get the modal
+//    var commentModal = document.getElementById("comModal");
+//
+//    // Get the button that opens the modal
+//    var btn2 = document.getElementsByClassName("openCom");
+//
+//    // Get the <span> element that closes the modal
+//    var comSpan = document.getElementsByClassName("closeComment")[0];
+//
+//    // When the user clicks on <span> (x), close the modal
+//    comSpan.onclick = function() {
+//      commentModal.style.display = "none";
+//    }
+//
+//    var showComModal = function() {
+//        commentModal.style.display = "block";
+//    };
 
-    // Get the button that opens the modal
-    var btn2 = document.getElementsByClassName("openCom");
 
-    // Get the <span> element that closes the modal
-    var comSpan = document.getElementsByClassName("closeComment")[0];
+//    var testFunc = function(){
+//        $.ajax({
+//			data : {
+//				room : $('#comBtn').val()
+//			},
+//			type : 'POST',
+//			url : '/getComment/'
+//	    })
+//		success: (function(data) {
+//
+//			$('#displayComment').text(data).show();
+//			$('#comModal').modal('show');
+//		});
+//    }
 
-    // When the user clicks on <span> (x), close the modal
-    comSpan.onclick = function() {
-      commentModal.style.display = "none";
-    }
+    $(document).ready(function(){
+        $('.comBtn').click(function(){
+            var roomid = $(this).data('id');
+//            alert(roomId)
+            $.ajax({
+                url: '/getComment/',
+                type: 'post',
+                data: {roomid: roomid},
+                success: function(data){
+                    $('#modal-body').text(data).show();
+                    $('#comModal').modal('show');
+//                    $('#comModal').html(data);
 
-    var showComModal = function() {
-        commentModal.style.display = "block";
-    };
 
-    for (var i = 0; i < btn.length; i++) {
-        btn2[i].addEventListener('click', showComModal, false);
-    }
+//                    alert(data);
+                }
+            });
+        });
+    });
+
+//    for (var i = 0; i < btn.length; i++) {
+//        btn2[i].addEventListener('click', testFunc, false);
+//    }
+
 
 
 //Function for the navigation bar
@@ -82,23 +119,24 @@
     }
 
 
-//Ajax request for comment
-$('input').on('onClick', function(event) {
-
-		$.ajax({
-			data : {
-				room : $('#comBtn').val()
-			},
-			type : 'POST',
-			url : '/getComment'
-		})
-		.done(function(data) {
-
-			$('#displayComment').text(data).show();
-
-
-		});
-
-		event.preventDefault();
-
-	});
+//
+////Ajax request for comment
+//$('input').on('onClick', function(event) {
+//
+//		$.ajax({
+//			data : {
+//				room : $('#comBtn').val()
+//			},
+//			type : 'POST',
+//			url : '/getComment'
+//		})
+//		.done(function(data) {
+//          btn2[i].addEventListener('click', showComModal, false);
+//			$('#displayComment').text(data).show();
+//
+//
+//		});
+//
+//		event.preventDefault();
+//
+//	});

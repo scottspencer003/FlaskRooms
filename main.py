@@ -12,7 +12,7 @@ room and set the room to vacant status
 """
 
 #import modules
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 import json
 import os
 import utils
@@ -83,14 +83,19 @@ def addPatient():
     return redirect(url_for('display'))
 
 
-@app.route("/getComment", methods=["GET", "POST"])
+@app.route("/getComment/", methods=["GET", "POST"])
 def getComment():
     if request.method == "POST":
-        room_num = request.form.get('openCom')
+        room_num = request.form['roomid']
         rooms_data = utils.read_file_data("rooms.json")
+        comment = ""
+
         for room in rooms_data['rooms']:
             if room['room'] == int(room_num):
-                return room['comment']
+                comment = room['comment']
+
+
+        return comment
 
 
 # @app.route("/movePatient/", methods=["GET", "POST"])
