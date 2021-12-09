@@ -9,7 +9,7 @@
       "loc": "Routine",
       "visitors": "All",
       "admission_date": "11/16/2021",
-      "comment": "none\r\n"
+      "comment": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n"
     },
     {
       "room": 2,
@@ -25,24 +25,24 @@
     {
       "room": 3,
       "room_name": "room three",
-      "occupied": true,
-      "patient_name": "Test Patient 2",
-      "patient_insurance": "Medicare",
-      "loc": "Routine",
-      "visitors": "All",
-      "admission_date": "11/11/2021",
-      "comment": "Testing this comment"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 4,
       "room_name": "room four",
       "occupied": true,
       "patient_name": "Test Patient 5",
-      "patient_insurance": "Medicare",
+      "patient_insurance": "Tufts",
       "loc": "Routine",
       "visitors": "All",
-      "admission_date": "11/11/2021",
-      "comment": "Testing this comment"
+      "admission_date": "11/16/2021",
+      "comment": "This is the comment for room 4\r\n"
     },
     {
       "room": 5,
