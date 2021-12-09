@@ -90,7 +90,7 @@
             });
         });
 
-        $('.closePatientModal').click(function() {
+        $('.close').click(function() {
             $('#patientModal').modal('hide');
         });
 

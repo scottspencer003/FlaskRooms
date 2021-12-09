@@ -85,7 +85,7 @@
                 </td>
 <!-- Button for patient update               -->
 <!--                <td><div class="openBtn"><input type="image" id="myBtn" value="{{room['room']}}" onclick="passRoom({{room['room']}})" src="static/user.png" alt="Update" width="18" height="18"></div></td>-->
-                <td><button type="image" data-id="{{room['room']}}" class="patientBtn btn"><img src="static/user.png"></button></td>
+                <td><button type="image" data-id="{{room['room']}}" class="patientBtn btn"><img src="static/user.png" data-target="#staticBackdrop"></button></td>
 <!-- Button for room clear/close             -->
                 <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>
 <!--                <td>-->
@@ -103,11 +103,11 @@
 <!--                </td>-->
 
 
-                <div id="patientModal" class="modal" >
+                <div id="patientModal" class="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
 
                   <!-- Update patient modal content -->
                   <div class="modal-content">
-                    <span class="closePatientModal">&times;</span>
+                    <span class="close">x</span>
                       <br />
                       <h3>Update Patient</h3>
                       <br />
