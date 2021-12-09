@@ -97,6 +97,19 @@ def getComment():
         return comment
 
 
+@app.route("/getPatient/", methods=["GET", "POST"])
+def getPatient():
+    if request.method == "POST":
+        room_num = request.form['roomid']
+        rooms_data = utils.read_file_data("rooms.json")
+
+        for room in rooms_data['rooms']:
+            if room['room'] == int(room_num):
+                return room
+
+
+
+
 # @app.route("/movePatient/", methods=["GET", "POST"])
 # def movePatient():
 #     if request.method == "POST":
