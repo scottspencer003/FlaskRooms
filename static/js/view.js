@@ -10,7 +10,7 @@
             container: container,
             todayHighlight: true,
             autoclose: true,
-        })
+        });
     })
 
 
@@ -46,43 +46,9 @@
     }
 
 
-
-//Comment Modal
-//    // Get the modal
-//    var commentModal = document.getElementById("comModal");
-//
-//    // Get the button that opens the modal
-//    var btn2 = document.getElementsByClassName("openCom");
-//
-//    // Get the <span> element that closes the modal
-//    var comSpan = document.getElementsByClassName("closeComment")[0];
-//
-//    // When the user clicks on <span> (x), close the modal
-//    comSpan.onclick = function() {
-//      commentModal.style.display = "none";
-//    }
-//
-//    var showComModal = function() {
-//        commentModal.style.display = "block";
-//    };
-
-
-//    var testFunc = function(){
-//        $.ajax({
-//			data : {
-//				room : $('#comBtn').val()
-//			},
-//			type : 'POST',
-//			url : '/getComment/'
-//	    })
-//		success: (function(data) {
-//
-//			$('#displayComment').text(data).show();
-//			$('#comModal').modal('show');
-//		});
-//    }
-
     $(document).ready(function(){
+
+        //Comment open and close modal
         $('.comBtn').click(function(){
             var roomid = $(this).data('id');
             $.ajax({
@@ -99,12 +65,11 @@
         $('.closeComment').click(function() {
             $('#comModal').modal('hide');
         });
+
     });
 
 
-//    for (var i = 0; i < btn.length; i++) {
-//        btn2[i].addEventListener('click', testFunc, false);
-//    }
+
 
 
 
@@ -117,26 +82,3 @@
         x.className = "topnav";
       }
     }
-
-
-//
-////Ajax request for comment
-//$('input').on('onClick', function(event) {
-//
-//		$.ajax({
-//			data : {
-//				room : $('#comBtn').val()
-//			},
-//			type : 'POST',
-//			url : '/getComment'
-//		})
-//		.done(function(data) {
-//          btn2[i].addEventListener('click', showComModal, false);
-//			$('#displayComment').text(data).show();
-//
-//
-//		});
-//
-//		event.preventDefault();
-//
-//	});
