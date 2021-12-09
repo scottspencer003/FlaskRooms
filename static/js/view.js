@@ -85,7 +85,6 @@
     $(document).ready(function(){
         $('.comBtn').click(function(){
             var roomid = $(this).data('id');
-//            alert(roomId)
             $.ajax({
                 url: '/getComment/',
                 type: 'post',
@@ -93,14 +92,15 @@
                 success: function(data){
                     $('#modal-body').text(data).show();
                     $('#comModal').modal('show');
-//                    $('#comModal').html(data);
-
-
-//                    alert(data);
                 }
             });
         });
+
+        $('.closeComment').click(function() {
+            $('#comModal').modal('hide');
+        });
     });
+
 
 //    for (var i = 0; i < btn.length; i++) {
 //        btn2[i].addEventListener('click', testFunc, false);

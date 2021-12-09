@@ -94,7 +94,6 @@ def getComment():
             if room['room'] == int(room_num):
                 comment = room['comment']
 
-
         return comment
 
 
