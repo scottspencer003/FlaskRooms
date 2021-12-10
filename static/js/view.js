@@ -12,17 +12,6 @@
             autoclose: true,
         });
     })
-//    $(document).ready(function(){
-//      var date_input=$('input[name="date"]'); //our date input has the name "date"
-//      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
-//      var options={
-//        format: 'mm/dd/yyyy',
-//        container: container,
-//        todayHighlight: true,
-//        autoclose: true,
-//      };
-//      date_input.datepicker(options);
-//    })
 
 
     $(document).ready(function(){
@@ -40,7 +29,7 @@
                 }
             });
         });
-
+        //Close the comment modal
         $('.closeComment').click(function() {
             $('#comModal').modal('hide');
         });
@@ -68,7 +57,7 @@
                 }
             });
         });
-
+        //Close patient modal form
         $('.close').click(function() {
             $('#patientModal').modal('hide');
         });
@@ -83,16 +72,13 @@
             $('.clearYes').attr('data-id', roomid);
             $('#clearPatientModal').modal('show');
         });
-
+        //Closes modal in cancel is selected
         $('.clearNo').click(function() {
             $('#clearPatientModal').modal('hide');
         });
 
-    });
 
-    $(document).ready(function(){
-
-        //Clear patient
+        //Clear patient data from room if clear button selected
         $('.clearYes').click(function(){
             var roomid = $(this).attr('data-id');
             $.ajax({
@@ -107,6 +93,7 @@
         });
 
     });
+
 
 
 
