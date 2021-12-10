@@ -90,19 +90,7 @@
                 <td><button type="image" data-id="{{room['room']}}" class="patientBtn btn"><img src="static/user.png" data-target="#staticBackdrop"></button></td>
 <!-- Button for room clear/close             -->
 <!--                <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>-->
-<!--                <td>-->
-<!--                    <div class="dropdown">-->
-<!--                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" >-->
-<!--                         <img src="static/exit.png">-->
 
-<!--                        </button>-->
-<!--                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">-->
-<!--                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close Room</a></li>-->
-<!--                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Open Room</a></li>-->
-<!--                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove Patient</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </td>-->
                 <td>
                     <div class="dropdown">
                       <button class="btn btn-sm dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" >
@@ -110,10 +98,10 @@
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                         <li>
-                            <button class="dropdown-item" type="button" data-id="{{room['room']}}">Clear Patient</button>
+                            <button class="dropdown-item clearPatientBtn" type="button" data-id="{{room['room']}}">Clear Patient</button>
                         </li>
                         <li>
-                          <button class="dropdown-item" type="button" data-id="{{room['room']}}">Close Room</button>
+                          <button class="dropdown-item closeRoomBtn" type="button" data-id="{{room['room']}}">Close Room</button>
                         </li>
                       </ul>
                     </div>
@@ -189,6 +177,24 @@
             </div>
         </div>
 
+
+        <!-- Clear Patient Modal -->
+        <div class="modal" id="clearPatientModal" tabindex="-1" role="dialog" aria-labelledby="clearPatientModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Clear Room?</h5>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure you want to clear the patient from room?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left clearYes" data-id="" >Clear Patient</button>
+                <button type="button" class="btn btn-secondary pull-right clearNo" data-id="" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
         <br />

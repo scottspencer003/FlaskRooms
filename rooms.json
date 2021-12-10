@@ -36,12 +36,12 @@
     {
       "room": 4,
       "room_name": "room four",
-      "occupied": true,
-      "patient_name": "Test Patient 4",
-      "patient_insurance": "Tufts",
-      "loc": "Routine",
-      "visitors": "All",
-      "admission_date": "11/16/2021",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
       "comment": ""
     },
     {

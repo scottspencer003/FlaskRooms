@@ -75,6 +75,38 @@
 
     });
 
+    $(document).ready(function(){
+
+        //Clear patient open and close modal
+        $('.clearPatientBtn').click(function(){
+            var roomid = $(this).data('id');
+            $('.clearYes').attr('data-id', roomid);
+            $('#clearPatientModal').modal('show');
+        });
+
+        $('.clearNo').click(function() {
+            $('#clearPatientModal').modal('hide');
+        });
+
+    });
+
+    $(document).ready(function(){
+
+        //Clear patient
+        $('.clearYes').click(function(){
+            var roomid = $(this).attr('data-id');
+            $.ajax({
+                url: '/clear/',
+                type: 'post',
+                data: {roomid: roomid},
+                success: function(){
+                    $('#clearPatientModal').modal('hide');
+                    location.reload();
+                }
+            });
+        });
+
+    });
 
 
 

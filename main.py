@@ -36,7 +36,8 @@ def display():
 @app.route('/clear/', methods=['POST', 'GET'])
 def clear():
     if request.method == "POST":
-        room_num = request.form.get('clear')
+        # room_num = request.form.get('clear')
+        room_num = request.form['roomid']
         utils.clear_room(room_num)
 
     return redirect(request.referrer)
