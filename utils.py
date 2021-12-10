@@ -60,13 +60,13 @@ def close_room(room_num, comment):
     data = read_file_data(json_file)
     for room in data['rooms']:
         if room['room'] == int(room_num):
-            room['patient_name'] = ""
-            room['occupied'] = False
-            room['patient_insurance'] = ""
-            room['visitors'] = ""
-            room['admission_date'] = ""
-            room['admission_date'] = ""
-            room['loc'] = ""
+            room['patient_name'] = "---"
+            room['occupied'] = "closed"
+            room['patient_insurance'] = "---"
+            room['visitors'] = "---"
+            room['admission_date'] = "---"
+            room['loc'] = "---"
+            room['comment'] = comment
 
     with open(json_file, "w+") as f:
         json.dump(data, f, indent=2)

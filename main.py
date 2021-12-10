@@ -107,7 +107,15 @@ def getPatient():
             if room['room'] == int(room_num):
                 return room
 
+#route set to the exit button that will clear the patient data for that room and change the status to vacant
+@app.route('/closeRoom/', methods=['POST', 'GET'])
+def closeRoom():
+    if request.method == "POST":
+        room_num = request.form.get('closeRoom')
+        comment = request.form.get('roomComment')
+        utils.close_room(room_num, comment)
 
+    return redirect(request.referrer)
 
 
 # @app.route("/movePatient/", methods=["GET", "POST"])

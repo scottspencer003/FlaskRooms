@@ -11,6 +11,8 @@
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
 </head>
 
 
@@ -56,8 +58,8 @@
                     <td>Insurance</td>
                     <td>Admission Date</td>
                     <td>Comment</td>
-                    <td>  </td>
-                    <td>  </td>
+                    <td>Update</td>
+                    <td>Clear/Close</td>
                 </tr>
             </thead>
 
@@ -87,7 +89,7 @@
 <!--                <td><div class="openBtn"><input type="image" id="myBtn" value="{{room['room']}}" onclick="passRoom({{room['room']}})" src="static/user.png" alt="Update" width="18" height="18"></div></td>-->
                 <td><button type="image" data-id="{{room['room']}}" class="patientBtn btn"><img src="static/user.png" data-target="#staticBackdrop"></button></td>
 <!-- Button for room clear/close             -->
-                <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>
+<!--                <td><form action="/clear/" method="post"><input type="submit" name="clear" value="{{room['room']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 18px 18px; cursor:pointer; color:transparent;"></form></td>-->
 <!--                <td>-->
 <!--                    <div class="dropdown">-->
 <!--                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" >-->
@@ -101,6 +103,21 @@
 <!--                        </ul>-->
 <!--                    </div>-->
 <!--                </td>-->
+                <td>
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" >
+                        <img src="static/exit.png">
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        <li>
+                            <button class="dropdown-item" type="button" data-id="{{room['room']}}">Clear Patient</button>
+                        </li>
+                        <li>
+                          <button class="dropdown-item" type="button" data-id="{{room['room']}}">Close Room</button>
+                        </li>
+                      </ul>
+                    </div>
+                </td>
 
 
                 <div id="patientModal" class="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
@@ -166,7 +183,7 @@
             <div class="modal-content">
                 <span class="closeComment">x</span>
                 <br />
-                <h5>Room Comments</h5>
+<!--                <h5>Room Comments</h5>-->
                 <div id="modal-body"></div>
                 <br />
             </div>
