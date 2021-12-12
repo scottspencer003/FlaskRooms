@@ -31,7 +31,7 @@
       "loc": "Routine/PP",
       "visitors": "All",
       "admission_date": "12/9/2021",
-      "comment": "The cat"
+      "comment": "The coolest cat around! Pretty cute too!"
     },
     {
       "room": 4,
@@ -69,13 +69,13 @@
     {
       "room": 7,
       "room_name": "room four",
-      "occupied": true,
-      "patient_name": "Dave Babcock",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "11/10/2021",
-      "comment": "Cool guy"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 8,
