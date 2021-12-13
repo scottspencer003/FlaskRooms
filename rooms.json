@@ -58,13 +58,13 @@
     {
       "room": 6,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
+      "comment": "test"
     },
     {
       "room": 7,

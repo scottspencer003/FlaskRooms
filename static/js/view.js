@@ -95,6 +95,36 @@
     });
 
 
+    $(document).ready(function(){
+        //Close room open and close modal
+        $('.closeRoomBtn').click(function(){
+            var roomid = $(this).data('id');
+            $('.closeYes').attr('data-id', roomid);
+            $('#closeRoomModal').modal('show');
+        });
+        //Closes modal in cancel is selected
+        $('.closeNo').click(function() {
+            $('#closeRoomModal').modal('hide');
+        });
+
+
+        //Close room
+        $('.closeYes').click(function(){
+            var roomid = $(this).attr('data-id');
+            var comment = $('#roomCloseComment').val();
+            $.ajax({
+                url: '/closeRoom/',
+                type: 'post',
+                data: {roomid: roomid, comment: comment},
+                success: function(){
+                    $('#closeRoomModal').modal('hide');
+                    location.reload();
+                }
+            });
+        });
+    });
+
+
 
 
 
