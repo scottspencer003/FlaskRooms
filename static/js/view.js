@@ -92,6 +92,33 @@
             });
         });
 
+
+        //Clear patient open and close modal
+        $('.openRoomBtn').click(function(){
+            var roomid = $(this).data('id');
+            $('.openYes').attr('data-id', roomid);
+            $('#openRoomModal').modal('show');
+        });
+        //Closes modal in cancel is selected
+        $('.openNo').click(function() {
+            $('#openRoomModal').modal('hide');
+        });
+
+
+        //Clear patient data from room if clear button selected
+        $('.openYes').click(function(){
+            var roomid = $(this).attr('data-id');
+            $.ajax({
+                url: '/clear/',
+                type: 'post',
+                data: {roomid: roomid},
+                success: function(){
+                    $('#openRoomModal').modal('hide');
+                    location.reload();
+                }
+            });
+        });
+
     });
 
 

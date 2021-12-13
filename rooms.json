@@ -58,13 +58,13 @@
     {
       "room": 6,
       "room_name": "room four",
-      "occupied": "closed",
-      "patient_name": "---",
-      "patient_insurance": "---",
-      "loc": "---",
-      "visitors": "---",
-      "admission_date": "---",
-      "comment": "test"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 7,
@@ -91,6 +91,17 @@
     {
       "room": 9,
       "room_name": "room nine",
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
+      "comment": "close room"
+    },
+    {
+      "room": 10,
+      "room_name": "room ten",
       "occupied": false,
       "patient_name": "",
       "patient_insurance": "",
@@ -98,17 +109,6 @@
       "visitors": "",
       "admission_date": "",
       "comment": ""
-    },
-    {
-      "room": 10,
-      "room_name": "room ten",
-      "occupied": "closed",
-      "patient_name": "---",
-      "patient_insurance": "---",
-      "loc": "---",
-      "visitors": "---",
-      "admission_date": "---",
-      "comment": "Broken bed"
     }
   ]
 }

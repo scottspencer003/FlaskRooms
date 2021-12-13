@@ -73,6 +73,7 @@ def close_room(room_num, comment):
     f.close()
 
 
+
 def clear_room(room_num):
     """
     Clears the patient information from the room and sets its occupancy to vacant
