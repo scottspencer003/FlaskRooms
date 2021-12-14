@@ -2,18 +2,18 @@
   "waitList": [
     {
       "slot": 1,
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "routine",
-      "currentLocation": "home",
-      "visitors": "All",
-      "waitListAddedDate": "12/21/2021",
-      "approvedBy": "Sam",
-      "contact": "Shawn",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "currentLocation": "",
+      "visitors": "",
+      "waitListAddedDate": "",
+      "approvedBy": "",
+      "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 2,
       "occupied": false,
       "patient_name": "",
@@ -26,7 +26,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 3,
       "occupied": false,
       "patient_name": "",
@@ -39,7 +39,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 4,
       "occupied": false,
       "patient_name": "",
@@ -52,7 +52,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 5,
       "occupied": false,
       "patient_name": "",
@@ -65,7 +65,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 6,
       "occupied": false,
       "patient_name": "",
@@ -78,7 +78,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 7,
       "occupied": false,
       "patient_name": "",
@@ -91,7 +91,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 8,
       "occupied": false,
       "patient_name": "",
@@ -104,7 +104,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 9,
       "occupied": false,
       "patient_name": "",
@@ -117,7 +117,7 @@
       "contact": "",
       "comments": ""
     },
-    {
+        {
       "slot": 10,
       "occupied": false,
       "patient_name": "",

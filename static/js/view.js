@@ -11,7 +11,19 @@
             todayHighlight: true,
             autoclose: true,
         });
+
+
+        var date_input=$('input[name="waitDate"]'); //our date input has the name "date"
+        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+        date_input.datepicker({
+            format: 'mm/dd/yyyy',
+            container: container,
+            todayHighlight: true,
+            autoclose: true,
+        });
     })
+
+
 
 
     $(document).ready(function(){
@@ -177,7 +189,7 @@
         });
         //Close patient modal form
         $('.close').click(function() {
-            $('#patientModal').modal('hide');
+            $('#patientWaitModal').modal('hide');
         });
 
     });

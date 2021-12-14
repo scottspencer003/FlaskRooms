@@ -128,4 +128,34 @@ def getWaitPatient():
             if slot['slot'] == int(slot_num):
                 return slot
 
+
+
+
+#route that updates the json data file with the patient info from the form
+@app.route("/addWaitListPatient/", methods=["GET", "POST"])
+def addWaitPatient():
+    if request.method == "POST":
+        slot_num = request.form.get('waitUpdate')
+        wait_list_data = utils.read_file_data("waitListGIP.json")
+
+        for slot in wait_list_data['waitList']:
+            if slot['slot'] == int(slot_num):
+                slot['patient_name'] = request.form.get("inputWaitName")
+                slot['occupied'] = True
+                slot['patient_insurance'] = request.form.get("inputWaitInsurance")
+                slot['visitors'] = request.form.get("inputWaitVisitors")
+                slot['waitListAddedDate'] = request.form.get("waitDate")
+                slot['loc'] = request.form.get("inputWaitLOC")
+                slot['currentLocation'] = request.form.get("inputWaitLocation")
+                slot['approvedBy'] = request.form.get("inputWaitAppr")
+                slot['contact'] = request.form.get("inputWaitContact")
+                slot['comments'] = request.form.get("inputWaitComment")
+
+
+        with open("waitListGIP.json", "w+") as f:
+            json.dump(wait_list_data, f, indent=2)
+        f.close()
+
+    return redirect(url_for('display'))
+
 app.run(use_reloader=True, debug=True)
