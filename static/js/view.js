@@ -38,7 +38,7 @@
 
     $(document).ready(function(){
 
-        //Comment open and close modal
+        //Open and close patient modal
         $('.patientBtn').click(function(){
             var roomid = $(this).data('id');
             $.ajax({
@@ -137,6 +137,8 @@
 
         //Close room
         $('.closeYes').click(function(){
+//            Prevent default event workaround for Firefox
+            event.preventDefault();
             var roomid = $(this).attr('data-id');
             var comment = $('#roomCloseComment').val();
             $.ajax({
@@ -151,8 +153,34 @@
         });
     });
 
+    $(document).ready(function(){
+        //Open and close waitlist slot modal
+        $('.patientWaitBtn').click(function(){
+            var slotid = $(this).data('id');
+            $.ajax({
+                url: '/getWaitPatient/',
+                type: 'post',
+                data: {slotid: slotid},
+                success: function(data){
+                    $('#inputWaitName').val(data['patient_name']);
+                    $('#waitDate').val(data['waitListAddedDate']);
+                    $('#inputWaitLOC').val(data['loc']);
+                    $('#inputWaitInsurance').val(data['patient_insurance']);
+                    $('#inputWaitVisitors').val(data['visitors']);
+                    $('#inputWaitComment').val(data['comments']);
+                    $('#inputWaitAppr').val(data['approvedBy']);
+                    $('#inputWaitContact').val(data['contact']);
+                    $('#waitUpdate').val(data['slot']);
+                    $('#patientWaitModal').modal('show');
+                }
+            });
+        });
+        //Close patient modal form
+        $('.close').click(function() {
+            $('#patientModal').modal('hide');
+        });
 
-
+    });
 
 
 //Function for the navigation bar

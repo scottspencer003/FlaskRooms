@@ -117,13 +117,15 @@ def closeRoom():
 
     return redirect(request.referrer)
 
-
-# @app.route("/movePatient/", methods=["GET", "POST"])
-# def movePatient():
-#     if request.method == "POST":
-#         room_num = request.form.get('moveToRoom')
-#         patientInfo = request.form.get('patient')
 #
-#     return redirect(url_for('display'))
+@app.route("/getWaitPatient/", methods=["GET", "POST"])
+def getWaitPatient():
+    if request.method == "POST":
+        slot_num = request.form['slotid']
+        wait_list_data = utils.read_file_data("waitListGIP.json")
+
+        for slot in wait_list_data['waitList']:
+            if slot['slot'] == int(slot_num):
+                return slot
 
 app.run(use_reloader=True, debug=True)

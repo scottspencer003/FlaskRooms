@@ -102,13 +102,13 @@
     {
       "room": 10,
       "room_name": "room ten",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
+      "comment": "Closed for cleaning"
     }
   ]
 }
