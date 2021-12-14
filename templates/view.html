@@ -125,65 +125,71 @@
                 </td>
                 {% endif %}
 
-                <div id="patientModal" class="modal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-
-                  <!-- Update patient modal content -->
-                  <div class="modal-content">
-                    <span class="close">x</span>
-                      <br />
-                      <h3>Update Patient</h3>
-                      <br />
-                    <div class="patient-form" id="patient-form">
-                    <form action="/addPatient/" method="POST">
-                    <div class="form-row">
-                        <div class="form-group col-md-8">
-                            <label for="inputName">Name</label>
-                            <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="" required>
-                        </div>
-                        <div class="form-group col-md-4"> <!-- Date input -->
-                            <label class="control-label" for="date">Admission Date</label>
-                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="{{room['admission_date']}}" required/>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="inputLOC">LOC</label>
-                            <input type="text" class="form-control" id="inputLOC" name="inputLOC" value="{{room['loc']}}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputInsurance">Insurance</label>
-                            <input type="text" class="form-control" id="inputInsurance" name="inputInsurance" value="{{room['patient_insurance']}}" >
-                    </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputVisitors">Visitors</label>
-                            <select id="inputVisitors" class="form-control" name="inputVisitors" value="{{room['visitors']}}">
-                                <option>
-                                    <option  selected value="All">All</option>
-                                    <option value="Restricted">Restricted</option>
-                                    <option value="None">None</option>
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                        <div class="form-group">
-                            <label for="inputComment">Comment</label>
-                            <textarea id="inputComment" class="form-control" name="inputComment" rows="6" value="{{room['comment']}}" >{{room['comment']}}</textarea>
-                        </div>
-                        <br />
-
-                    <button type="submit" name="update" id="update" value="" class="btn btn-primary">Submit</button>
-                    </form>
-                    </div>
-                  </div>
-                </div>
 
                 {%endfor%}
             </tr>
         </table>
 
+        <!-- Update Patient Modal -->
+        <div class="modal" id="patientModal" tabindex="-1" role="dialog" aria-labelledby="patientModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="patientModalTitle">Update Patient</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="patient-form" id="patient-form">
+                    <form action="/addPatient/" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label for="inputName">Name</label>
+                                <input type="text" class="form-control" id="inputName" name="inputName" placeholder="Name" value="" required>
+                            </div>
+                            <div class="form-group col-md-4"> <!-- Date input -->
+                                <label class="control-label" for="date">Admission Date</label>
+                                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" autocomplete="off" value="" required/>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputLOC">LOC</label>
+                                <input type="text" class="form-control" id="inputLOC" name="inputLOC" value="">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputInsurance">Insurance</label>
+                                <input type="text" class="form-control" id="inputInsurance" name="inputInsurance" value="" >
+                        </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputVisitors">Visitors</label>
+                                <select id="inputVisitors" class="form-control" name="inputVisitors" value="">
+                                    <option>
+                                        <option  selected value="All">All</option>
+                                        <option value="Restricted">Restricted</option>
+                                        <option value="None">None</option>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                            <div class="form-group">
+                                <label for="inputComment">Comment</label>
+                                <textarea id="inputComment" class="form-control" name="inputComment" rows="6" value="" ></textarea>
+                            </div>
+                            <br />
+
+                        <button type="submit" name="update" id="update" value="" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Comment Modal -->
         <div class="modal" id="comModal" tabindex="-1" role="dialog" aria-labelledby="comModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="comModalTitle">Room Comments:</h5>
@@ -288,9 +294,9 @@
             <tr class="active-row">
                 <td>{{ wait['slot']}}</td>
                 <td>{{wait['patient_name']}}</td>
-                <td>{{wait['patient_insurance']}}</td>
                 <td>{{wait['loc']}}</td>
                 <td>{{wait['currentLocation']}}</td>
+                <td>{{wait['patient_insurance']}}</td>
                 <td>{{wait['waitListAddedDate']}}</td>
                 <td>{{wait['approvedBy']}}</td>
                 <td>{{wait['contact']}}</td>
