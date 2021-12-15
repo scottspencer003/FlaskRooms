@@ -41,10 +41,10 @@ def clear():
 
     return redirect(request.referrer)
 
-@app.route('/clearGIPSlot/', methods=['POST', 'GET'])
+@app.route('/clearWaitSlot/', methods=['POST', 'GET'])
 def clearSlot():
     if request.method == "POST":
-        slot_num = request.form.get('clearGIPSlot')
+        slot_num = request.form['slotid']
         jsonFile = "waitListGIP.json"
         utils.clear_wait_slot(jsonFile, slot_num)
         return redirect(request.referrer)
@@ -157,5 +157,19 @@ def addWaitPatient():
         f.close()
 
     return redirect(url_for('display'))
+
+
+@app.route("/getWaitComment/", methods=["GET", "POST"])
+def getWaitComment():
+    if request.method == "POST":
+        slot_num = request.form['slotid']
+        wait_list_data = utils.read_file_data("waitListGIP.json")
+        comment = ""
+
+        for slot in wait_list_data['waitList']:
+            if slot['slot'] == int(slot_num):
+                comment = slot['comments']
+
+        return comment
 
 app.run(use_reloader=True, debug=True)

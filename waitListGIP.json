@@ -5,13 +5,13 @@
       "occupied": true,
       "patient_name": "Scott Spencer",
       "patient_insurance": "Tufts",
-      "loc": "routine",
-      "currentLocation": "home",
+      "loc": "Routine/PP",
+      "currentLocation": "",
       "visitors": "All",
-      "waitListAddedDate": "12/21/2021",
+      "waitListAddedDate": "12/01/2021",
       "approvedBy": "Sam",
       "contact": "Shawn",
-      "comments": ""
+      "comments": "Patient has been waiting a long time."
     },
     {
       "slot": 2,

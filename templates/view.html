@@ -115,7 +115,10 @@
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
                         <li>
-                            <button class="dropdown-item clearPatientBtn" type="button" data-id="{{room['room']}}">Clear Patient</button>
+                            <button class="dropdown-item movePatientBtn" type="button" data-id="{{room['room']}}">Move Patient</button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item clearPatientBtn" type="button" data-id="{{room['room']}}">Remove Patient</button>
                         </li>
                         <li>
                           <button class="dropdown-item closeRoomBtn" type="button" data-id="{{room['room']}}">Close Room</button>
@@ -187,7 +190,7 @@
           </div>
         </div>
 
-        <!-- Comment Modal -->
+        <!-- Room Comment Modal -->
         <div class="modal" id="comModal" tabindex="-1" role="dialog" aria-labelledby="comModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
@@ -231,10 +234,10 @@
                 <h5 class="modal-title" id="closeRoomTitle">Close room</h5>
               </div>
               <div class="modal-body">
-                  <form>
+                  <form action="" method="POST">
                       <div class="form-group">
                         <label for="roomCloseComment">Reason for closing:</label>
-                        <textarea class="form-control" id="roomCloseComment" name="roomCloseComment" rows="4"></textarea>
+                        <textarea class="form-control" id="roomCloseComment" name="roomCloseComment" rows="4" required></textarea>
                       </div>
                       <button type="input" class="btn btn-primary pull-left closeYes" data-id="" >Close Room</button>
                       <button type="button" class="btn btn-secondary pull-right closeNo" data-id="" >Cancel</button>
@@ -285,7 +288,6 @@
                     <td>Comments</td>
                     <td>  </td>
                     <td>  </td>
-                    <td>  </td>
                 </tr>
             </thead>
 
@@ -300,11 +302,32 @@
                 <td>{{wait['waitListAddedDate']}}</td>
                 <td>{{wait['approvedBy']}}</td>
                 <td>{{wait['contact']}}</td>
-                <td>{{wait['comments']}}</td>
+                <td>
+                {% if wait['comments'] | length > 0 %}
+                    <button type="image" data-id="{{wait['slot']}}" class="comWaitBtn btn"><img src="static/comment.png"></button>
+                {% endif %}
+                </td>
                 <td><button type="image" data-id="{{wait['slot']}}" class="patientWaitBtn btn"><img src="static/user.png" data-target="#staticBackdrop"></button></td>
-                <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
-                <td><form action="/clearGIPSlot/" method="post"><input type="submit" name="clearGIPSlot" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>
+                {% if wait['occupied'] == true %}
+                <td>
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="waitBtnDropdown" data-toggle="dropdown" aria-expanded="false" >
+                        <img src="static/exit.png">
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="waitDropdownMenu">
+                        <li>
+                            <button class="dropdown-item moveWaitBtn" type="button" data-id="{{wait['slot']}}">Move Patient</button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item removeWaitBtn" type="button" data-id="{{wait['slot']}}">Remove Patient</button>
+                        </li>
+                      </ul>
+                    </div>
+                </td>
 
+                {% else %}
+                <td><img src="static/exit.png"></td>
+                {% endif %}
 
                 {%endfor%}
 
@@ -382,49 +405,42 @@
           </div>
         </div>
 
-<!--        <br />-->
-<!--        <br />-->
-<!--        <div class="list-header"><h2>Respite Waitlist</h2></div>-->
-<!--        <br />-->
+        <!-- Waitlist Comment Modal -->
+        <div class="modal" id="waitComModal" tabindex="-1" role="dialog" aria-labelledby="comModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="waitComModalTitle">Patient Comments:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="waitModal-body"></div>
+              <div class="modal-footer">
+              </div>
+            </div>
+          </div>
+        </div>
 
 
-<!--         <table class="styled-table">-->
-<!--            <thead>-->
-<!--                <tr>-->
-<!--                    <td> </td>-->
-<!--                    <td>Patient Name</td>-->
-<!--                    <td>LOC</td>-->
-<!--                    <td>Current Location</td>-->
-<!--                    <td>Insurance</td>-->
-<!--                    <td>Date on Waitlist</td>-->
-<!--                    <td>Approved by:</td>-->
-<!--                    <td>Contact/RN</td>-->
-<!--                    <td>Comments</td>-->
-<!--                    <td>  </td>-->
-<!--                    <td>  </td>-->
-<!--                    <td>  </td>-->
-<!--                </tr>-->
-<!--            </thead>-->
+        <!-- Clear wait slot modal -->
+        <div class="modal" id="clearWaitSlotModal" tabindex="-1" role="dialog" aria-labelledby="clearPatientModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="clearWaitSlotModalTitle">Clear wait list slot?</h5>
+              </div>
+              <div class="modal-body">
+                <p>Are you sure you want to clear the patient from the wait list?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left clearWaitYes" data-id="" >Clear Patient</button>
+                <button type="button" class="btn btn-secondary pull-right clearWaitNo" data-id="" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-<!--             {% for wait in respData['waitList'] %}-->
-
-<!--            <tr class="active-row">-->
-<!--                <td>{{ wait['slot']}}</td>-->
-<!--                <td>{{wait['patient_name']}}</td>-->
-<!--                <td>{{wait['patient_insurance']}}</td>-->
-<!--                <td>{{wait['loc']}}</td>-->
-<!--                <td>{{wait['currentLocation']}}</td>-->
-<!--                <td>{{wait['waitListAddedDate']}}</td>-->
-<!--                <td>{{wait['approvedBy']}}</td>-->
-<!--                <td>{{wait['contact']}}</td>-->
-<!--                <td>{{wait['comments']}}</td>-->
-<!--                <td><form action="" method="post"><input type="submit" name="add" value="{{wait['slot']}}" style="background-image: url('static/user.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>-->
-<!--                <td><form action="" method="post"><input type="submit" name="move" value="{{wait['slot']}}" style="background-image: url('static/move.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>-->
-<!--                <td><form action="" method="post"><input type="submit" name="clear" value="{{wait['slot']}}" style="background-image: url('static/exit.png'); border:none; background-repeat:no-repeat; background-size: 16px 16px; cursor:pointer; color:transparent;"></form></td>-->
-
-
-<!--                {%endfor%}-->
-<!--         </table>-->
         <br />
         <br />
         <br />

@@ -105,19 +105,19 @@
         });
 
 
-        //Clear patient open and close modal
+        //Open room modal
         $('.openRoomBtn').click(function(){
             var roomid = $(this).data('id');
             $('.openYes').attr('data-id', roomid);
             $('#openRoomModal').modal('show');
         });
-        //Closes modal in cancel is selected
+        //Closes modal if cancel is selected
         $('.openNo').click(function() {
             $('#openRoomModal').modal('hide');
         });
 
 
-        //Clear patient data from room if clear button selected
+        //Uses the /clear/ route to set the room back to a default cleared state. This re opens the room
         $('.openYes').click(function(){
             var roomid = $(this).attr('data-id');
             $.ajax({
@@ -190,6 +190,51 @@
         //Close patient modal form
         $('.close').click(function() {
             $('#patientWaitModal').modal('hide');
+        });
+
+         //Wait list comment open and close modal
+        $('.comWaitBtn').click(function(){
+            var slotid = $(this).data('id');
+            $.ajax({
+                url: '/getWaitComment/',
+                type: 'post',
+                data: {slotid: slotid},
+                success: function(data){
+                    $('#waitModal-body').text(data).show();
+                    $('#waitComModal').modal('show');
+                }
+            });
+        });
+        //Close the comment modal
+        $('.closeComment').click(function() {
+            $('#comModal').modal('hide');
+        });
+
+
+        //Clear patient from wait list open and close modal
+        $('.removeWaitBtn').click(function(){
+            var slotid = $(this).data('id');
+            $('.clearWaitYes').attr('data-id', slotid);
+            $('#clearWaitSlotModal').modal('show');
+        });
+        //Closes modal in cancel is selected
+        $('.clearWaitNo').click(function() {
+            $('#clearWaitSlotModal').modal('hide');
+        });
+
+
+        //Clears the patient from the wait list
+        $('.clearWaitYes').click(function(){
+            var slotid = $(this).attr('data-id');
+            $.ajax({
+                url: '/clearWaitSlot/',
+                type: 'post',
+                data: {slotid: slotid},
+                success: function(){
+                    $('#clearWaitSlotModal').modal('hide');
+                    location.reload();
+                }
+            });
         });
 
     });

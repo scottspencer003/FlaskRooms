@@ -26,7 +26,7 @@
       "room": 3,
       "room_name": "room three",
       "occupied": true,
-      "patient_name": "Kennedy",
+      "patient_name": "Kennedy the Cat",
       "patient_insurance": "Medicare",
       "loc": "Routine/PP",
       "visitors": "All",
@@ -58,12 +58,12 @@
     {
       "room": 6,
       "room_name": "room four",
-      "occupied": "closed",
-      "patient_name": "---",
-      "patient_insurance": "---",
-      "loc": "---",
-      "visitors": "---",
-      "admission_date": "---",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
       "comment": ""
     },
     {
