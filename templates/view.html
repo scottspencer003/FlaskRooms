@@ -101,6 +101,9 @@
                       </button>
                       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
                         <li>
+                          <button class="dropdown-item closeRoomBtn" type="button" data-id="{{room['room']}}">Edit Comment</button>
+                        </li>
+                        <li>
                             <button class="dropdown-item openRoomBtn" type="button" data-id="{{room['room']}}">Open Room</button>
                         </li>
                       </ul>
@@ -279,23 +282,28 @@
           </div>
         </div>
 
-<!--                &lt;!&ndash; Clear Patient Modal &ndash;&gt;-->
-<!--        <div class="modal" id="closeRoomModal" tabindex="-1" role="dialog" aria-labelledby="clearPatientModalTitle" aria-hidden="true">-->
-<!--          <div class="modal-dialog modal-dialog-centered" role="document">-->
-<!--            <div class="modal-content">-->
-<!--              <div class="modal-header">-->
-<!--                <h5 class="modal-title" id="closeRoomModalTitle">Close Room?</h5>-->
-<!--              </div>-->
-<!--              <div class="modal-body">-->
-<!--                <p>Close this room</p>-->
-<!--              </div>-->
-<!--              <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-danger pull-left clearYes" data-id="" >Clear Patient</button>-->
-<!--                <button type="button" class="btn btn-secondary pull-right clearNo" data-id="" >Cancel</button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <!-- Move Patient Modal -->
+        <div class="modal" id="movePatientRoomModal" tabindex="-1" role="dialog" aria-labelledby="movePatientRoomModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="closeRoomModalTitle">Close Room?</h5>
+              </div>
+              <div class="modal-body">
+                <p>Move patient to room:</p>
+                  <select id="roomNumber" name="roomNumber">
+                      {% for room in data['rooms'] %}
+                      <option value="{{room['room']}}">{{room['room']}}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left moveRoomYes" data-id="" >Move Patient</button>
+                <button type="button" class="btn btn-secondary pull-right moveRoomNo" data-id="" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
         <br />
