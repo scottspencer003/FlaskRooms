@@ -99,21 +99,33 @@
                       <button class="btn btn-sm dropdown-toggle" type="button" id="openRmDropBtn" data-toggle="dropdown" aria-expanded="false" >
                         <img src="static/exit.png">
                       </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
                         <li>
                             <button class="dropdown-item openRoomBtn" type="button" data-id="{{room['room']}}">Open Room</button>
                         </li>
                       </ul>
                     </div>
                 </td>
-
+                {% elif room['occupied'] == false %}
+                <td>
+                    <div class="dropdown">
+                      <button class="btn btn-sm dropdown-toggle" type="button" id="closeRmDropdown" data-toggle="dropdown" aria-expanded="false" >
+                        <img src="static/exit.png">
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+                        <li>
+                          <button class="dropdown-item closeRoomBtn" type="button" data-id="{{room['room']}}">Close Room</button>
+                        </li>
+                      </ul>
+                    </div>
+                </td>
                 {% else %}
                 <td>
                     <div class="dropdown">
                       <button class="btn btn-sm dropdown-toggle" type="button" id="dropdown" data-toggle="dropdown" aria-expanded="false" >
                         <img src="static/exit.png">
                       </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
                         <li>
                             <button class="dropdown-item movePatientBtn" type="button" data-id="{{room['room']}}">Move Patient</button>
                         </li>
@@ -213,7 +225,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Clear Room?</h5>
+                <h5 class="modal-title" id="clrPatientModalTitle">Clear Room?</h5>
               </div>
               <div class="modal-body">
                 <p>Are you sure you want to clear the patient from room?</p>
@@ -267,6 +279,24 @@
           </div>
         </div>
 
+<!--                &lt;!&ndash; Clear Patient Modal &ndash;&gt;-->
+<!--        <div class="modal" id="closeRoomModal" tabindex="-1" role="dialog" aria-labelledby="clearPatientModalTitle" aria-hidden="true">-->
+<!--          <div class="modal-dialog modal-dialog-centered" role="document">-->
+<!--            <div class="modal-content">-->
+<!--              <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="closeRoomModalTitle">Close Room?</h5>-->
+<!--              </div>-->
+<!--              <div class="modal-body">-->
+<!--                <p>Close this room</p>-->
+<!--              </div>-->
+<!--              <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-danger pull-left clearYes" data-id="" >Clear Patient</button>-->
+<!--                <button type="button" class="btn btn-secondary pull-right clearNo" data-id="" >Cancel</button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
 
         <br />
         <br />
@@ -314,7 +344,7 @@
                       <button class="btn btn-sm dropdown-toggle" type="button" id="waitBtnDropdown" data-toggle="dropdown" aria-expanded="false" >
                         <img src="static/exit.png">
                       </button>
-                      <ul class="dropdown-menu" aria-labelledby="waitDropdownMenu">
+                      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="waitDropdownMenu">
                         <li>
                             <button class="dropdown-item moveWaitToRoomBtn" type="button" data-id="{{wait['slot']}}">Assign to room</button>
                         </li>
