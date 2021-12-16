@@ -123,3 +123,24 @@ def clear_room(room_num):
     with open(json_file, "w+") as f:
         json.dump(data, f, indent=2)
     f.close()
+
+# def move_room(current_room, new_room):
+#     """
+#     Writes the patient to the room if it is vacant then returns a success message. If the room is not vacant then it returns an error asking that they clear the current patient first
+#     :param current_room: current room number for the patient
+#     :param new_room: room that they are being moved to
+#     :return:
+#     """
+#     json_file = "rooms.json"
+#     data = read_file_data(json_file)
+#
+#     for room in data['rooms']:
+#         if room['room'] == int(new_room):
+#             if room['occupied'] == False:
+#
+#
+#
+#
+#     with open(json_file, "w+") as f:
+#         json.dump(data, f, indent=2)
+#     f.close()
