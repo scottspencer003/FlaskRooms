@@ -48,7 +48,7 @@
       "room": 5,
       "room_name": "room four",
       "occupied": true,
-      "patient_name": "Sadie Spencer Deorocki",
+      "patient_name": "Sadie Deorocki",
       "patient_insurance": "BC/BS",
       "loc": "Routine/PP",
       "visitors": "All",
@@ -80,13 +80,13 @@
     {
       "room": 8,
       "room_name": "room eight",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
+      "comment": "Test\n"
     },
     {
       "room": 9,

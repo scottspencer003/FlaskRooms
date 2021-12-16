@@ -104,6 +104,33 @@
             });
         });
 
+        //Move patient open and close modal
+        $('.movePatientBtn').click(function(){
+            var roomid = $(this).data('id');
+            $('.moveRoomYes').attr('data-id', roomid);
+            $('#movePatientRoomModal').modal('show');
+        });
+        //Closes modal in cancel is selected
+        $('.moveRoomNo').click(function() {
+            $('#movePatientRoomModal').modal('hide');
+        });
+
+
+        //Move patient to a new room if room is available
+        $('.moveRoomYes').click(function(){
+            var roomid = $(this).attr('data-id');
+            var newRoom = '';
+            $.ajax({
+                url: '/movePatientRoom/',
+                type: 'post',
+                data: {roomid: roomid},
+                success: function(){
+                    $('#movePatientRoomModal').modal('hide');
+                    location.reload();
+                }
+            });
+        });
+
 
         //Open room modal
         $('.openRoomBtn').click(function(){
