@@ -58,6 +58,17 @@ def update():
         room = request.form.get('update')
         return render_template('patientUpdate.html', room=room)
 
+
+#route that controls the patient update button. Takes the current room number and redirects to the patient form
+@app.route('/movePatientRoom/', methods=['POST', 'GET'])
+def movePatientRoom():
+    if request.method == "POST":
+        current_num = request.form['current_room']
+        new_room = request.form['new_room']
+        message = utils.move_room(current_num, new_room)
+
+    return message
+
 #route that updates the json data file with the patient info from the form
 @app.route("/addPatient/", methods=["GET", "POST"])
 def addPatient():

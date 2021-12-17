@@ -118,19 +118,25 @@
 
         //Move patient to a new room if room is available
         $('.moveRoomYes').click(function(){
-            var roomid = $(this).attr('data-id');
-            var newRoom = '';
+            var current_room = $(this).attr('data-id');
+            var new_room = $('#roomNumber').val();
             $.ajax({
                 url: '/movePatientRoom/',
                 type: 'post',
-                data: {roomid: roomid},
-                success: function(){
+                data: {current_room: current_room, new_room: new_room},
+                success: function(data){
                     $('#movePatientRoomModal').modal('hide');
-                    location.reload();
+                    $('.moveRoomResp').text(data).show();
+                    $('#movePatResponseModal').modal('show');
+
                 }
             });
         });
 
+        //Refresh page after room move confirm
+        $('.moveRoomConf').click(function(){
+            location.reload();
+        });
 
         //Open room modal
         $('.openRoomBtn').click(function(){

@@ -47,17 +47,6 @@
     {
       "room": 5,
       "room_name": "room four",
-      "occupied": true,
-      "patient_name": "Sadie Deorocki",
-      "patient_insurance": "BC/BS",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "12/15/2021",
-      "comment": "Sleepy Sadie."
-    },
-    {
-      "room": 6,
-      "room_name": "room four",
       "occupied": false,
       "patient_name": "",
       "patient_insurance": "",
@@ -65,6 +54,17 @@
       "visitors": "",
       "admission_date": "",
       "comment": ""
+    },
+    {
+      "room": 6,
+      "room_name": "room four",
+      "occupied": true,
+      "patient_name": "Scott Spencer",
+      "patient_insurance": "Medicare",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "12/15/2021",
+      "comment": "Test "
     },
     {
       "room": 7,
