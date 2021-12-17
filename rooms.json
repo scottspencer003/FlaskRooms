@@ -91,13 +91,13 @@
     {
       "room": 9,
       "room_name": "room nine",
-      "occupied": "closed",
-      "patient_name": "---",
-      "patient_insurance": "---",
-      "loc": "---",
-      "visitors": "---",
-      "admission_date": "---",
-      "comment": "Cleaning still going"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 10,

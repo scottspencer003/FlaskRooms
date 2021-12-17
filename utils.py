@@ -55,23 +55,44 @@ def move_wait_room(json_file, slot_num, room_num):
     :param slot_num: the slot number that needs to be cleared
     :return:
     """
+
+    json_room_file = "rooms.json"
+    data = read_file_data(json_room_file)
+    message = ""
+
     wait_data = read_file_data(json_file)
     for slot in wait_data['waitList']:
         if slot['slot'] == int(slot_num):
-            slot['occupied'] = False
-            slot['patient_name'] = ""
-            slot['patient_insurance'] = ""
-            slot['loc'] = ""
-            slot['currentLocation'] = ""
-            slot['visitors'] = ""
-            slot['waitListAddedDate'] = ""
-            slot['approvedBy'] = ""
-            slot['contact'] = ""
-            slot['comments'] = ""
+            waitSlot = slot
 
-            with open(json_file, "w+") as f:
-                json.dump(data, f, indent=2)
-            f.close()
+
+
+    for room in data['rooms']:
+        if room['room'] == int(room_num):
+            if room['occupied'] == False:
+                room['patient_name'] = waitSlot['patient_name']
+                room['occupied'] = True
+                room['patient_insurance'] = waitSlot['patient_insurance']
+                room['visitors'] = waitSlot['visitors']
+                room['admission_date'] = ""
+                room['loc'] = waitSlot['loc']
+                room['comment'] = waitSlot['comments']
+
+                message = "Patient has been moved successfully."
+
+                with open(json_file, "w+") as f:
+                    json.dump(data, f, indent=2)
+                f.close()
+
+                clear_wait_slot(json_file, slot_num)
+
+            elif room['occupied'] == True:
+                message = "Could not move: This room is already occupied. If you still want to move the patient, remove the current patient from the room and try moving again."
+
+            elif room['occupied'] == "closed":
+                message = "Could not move: This room needs to be opened before a patient can be assigned to it."
+
+    return message
 
 def close_room(room_num, comment):
     """
