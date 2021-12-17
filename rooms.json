@@ -25,17 +25,6 @@
     {
       "room": 3,
       "room_name": "room three",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
-    },
-    {
-      "room": 4,
-      "room_name": "room four",
       "occupied": true,
       "patient_name": "Scott Spencer",
       "patient_insurance": "Tufts",
@@ -43,6 +32,17 @@
       "visitors": "All",
       "admission_date": "11/16/2021",
       "comment": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"\r\n"
+    },
+    {
+      "room": 4,
+      "room_name": "room four",
+      "occupied": true,
+      "patient_name": "Scott Spencer",
+      "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 5,

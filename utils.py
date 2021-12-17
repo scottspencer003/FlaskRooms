@@ -61,6 +61,7 @@ def move_wait_room(json_file, slot_num, room_num):
     message = ""
 
     wait_data = read_file_data(json_file)
+
     for slot in wait_data['waitList']:
         if slot['slot'] == int(slot_num):
             waitSlot = slot
@@ -80,7 +81,7 @@ def move_wait_room(json_file, slot_num, room_num):
 
                 message = "Patient has been moved successfully."
 
-                with open(json_file, "w+") as f:
+                with open(json_room_file, "w+") as f:
                     json.dump(data, f, indent=2)
                 f.close()
 

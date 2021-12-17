@@ -394,6 +394,10 @@
 
          </table>
 
+        <br />
+        <br />
+        <br />
+
 
         <!-- Add Patient to waitlist Modal -->
         <div class="modal" id="patientWaitModal" tabindex="-1" role="dialog" aria-labelledby="patientWaitModalTitle" aria-hidden="true">
@@ -502,9 +506,51 @@
           </div>
         </div>
 
-        <br />
-        <br />
-        <br />
+
+        <!-- Move Patient Modal -->
+        <div class="modal" id="waitPatientToRoomModal" tabindex="-1" role="dialog" aria-labelledby="waitPatientToRoomModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="waitPatientToRoomModalTitle">Move to room</h5>
+              </div>
+              <div class="modal-body">
+                <p>Move this patient from wait list to room:</p>
+                  <select id="toRoomNumber" name="roomNumber">
+                      {% for room in data['rooms'] %}
+                      <option value="{{room['room']}}">{{room['room']}}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left waitToRoomYes" data-id="" >Move Patient</button>
+                <button type="button" class="btn btn-secondary pull-right waitToRoomNo" data-id="" >Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Move Patient Response Modal -->
+        <div class="modal" id="waitPatResponseModal" tabindex="-1" role="dialog" aria-labelledby="waitPatResponseModalTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="waitPatResponseModalTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body waitToRoomResp">
+
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary moveRoomConf" data-id="" >Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
     <script src= "{{ url_for('static',filename='js/view.js') }}"></script>
     </body>

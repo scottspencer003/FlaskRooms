@@ -3,15 +3,15 @@
     {
       "slot": 1,
       "occupied": true,
-      "patient_name": "Scott Spencer",
+      "patient_name": "test patient",
       "patient_insurance": "Tufts",
       "loc": "Routine/PP",
-      "currentLocation": "",
+      "currentLocation": "home",
       "visitors": "All",
-      "waitListAddedDate": "12/01/2021",
+      "waitListAddedDate": "12/10/2021",
       "approvedBy": "Sam",
       "contact": "Shawn",
-      "comments": "Patient has been waiting a long time."
+      "comments": "Test"
     },
     {
       "slot": 2,
@@ -28,15 +28,15 @@
     },
     {
       "slot": 3,
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "currentLocation": "",
-      "visitors": "",
-      "waitListAddedDate": "",
-      "approvedBy": "",
-      "contact": "",
+      "occupied": true,
+      "patient_name": "Scott Spencer",
+      "patient_insurance": "Tufts",
+      "loc": "routine",
+      "currentLocation": "home",
+      "visitors": "All",
+      "waitListAddedDate": "12/06/2021",
+      "approvedBy": "Sam",
+      "contact": "Shawn",
       "comments": ""
     },
     {

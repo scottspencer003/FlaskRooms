@@ -183,4 +183,15 @@ def getWaitComment():
 
         return comment
 
+
+#route that controls the patient update button. Takes the current room number and redirects to the patient form
+@app.route('/moveWaitToRoom/', methods=['POST', 'GET'])
+def moveWaitToRoom():
+    if request.method == "POST":
+        slot_num = request.form['slot_num']
+        room_num = request.form['room_num']
+        message = utils.move_wait_room("waitListGIP.json", slot_num, room_num)
+
+    return message
+
 app.run(use_reloader=True, debug=True)

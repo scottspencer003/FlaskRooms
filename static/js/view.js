@@ -104,7 +104,7 @@
             });
         });
 
-        //Move patient open and close modal
+        //Move patient's room open and close modal
         $('.movePatientBtn').click(function(){
             var roomid = $(this).data('id');
             $('.moveRoomYes').attr('data-id', roomid);
@@ -269,6 +269,42 @@
                 }
             });
         });
+
+
+        //Move patient from wait list to room open/close modal
+        $('.moveWaitToRoomBtn').click(function(){
+            var slotid = $(this).data('id');
+            $('.waitToRoomYes').attr('data-id', slotid);
+            $('#waitPatientToRoomModal').modal('show');
+        });
+        //Closes modal in cancel is selected
+        $('.waitToRoomNo').click(function() {
+            $('#waitPatientToRoomModal').modal('hide');
+        });
+
+        //Move patient to a room from the wait list
+        $('.waitToRoomYes').click(function(){
+            var slot_num = $(this).attr('data-id');
+            var room_num = $('#toRoomNumber').val();
+            $.ajax({
+                url: '/moveWaitToRoom/',
+                type: 'post',
+                data: {slot_num: slot_num, room_num: room_num},
+                success: function(data){
+                    $('#waitPatientToRoomModal').modal('hide');
+                    $('.waitToRoomResp').text(data).show();
+                    $('#waitPatResponseModal').modal('show');
+
+                }
+            });
+        });
+
+        //Refresh page after room move confirm
+        $('.moveRoomConf').click(function(){
+            $('#waitPatResponseModal').modal('hide');
+            location.reload();
+        });
+
 
     });
 
