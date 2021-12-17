@@ -159,9 +159,9 @@ def move_room(current_room, new_room):
                 clear_room(current_room)
 
             elif room['occupied'] == True:
-                message = "There was a problem moving the patient: This room is already occupied. If you still want to move the patient, remove the current patient from the room and try moving again."
+                message = "Could not move: This room is already occupied. If you still want to move the patient, remove the current patient from the room and try moving again."
 
             elif room['occupied'] == "closed":
-                message = "There was a problem moving the patient: This room is closed and will need to be opened before a patient can be assigned."
+                message = "Could not move: This room needs to be opened before a patient can be assigned to it."
 
     return message
