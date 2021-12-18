@@ -60,7 +60,7 @@
                     <td>Admission Date</td>
                     <td>Comment</td>
                     <td>Update</td>
-                    <td>Clear/Close</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
 
@@ -210,7 +210,7 @@
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="comModalTitle">Room Comments:</h5>
+                <h5 class="modal-title" id="comModalTitle">Comments:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -228,13 +228,13 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="clrPatientModalTitle">Clear Room?</h5>
+                <h5 class="modal-title" id="clrPatientModalTitle">Remove Patient</h5>
               </div>
               <div class="modal-body">
-                <p>Are you sure you want to clear the patient from room?</p>
+                <p>Are you sure you want to remove the patient from this room?</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left clearYes" data-id="" >Clear Patient</button>
+                <button type="button" class="btn btn-danger pull-left clearYes" data-id="" >Remove</button>
                 <button type="button" class="btn btn-secondary pull-right clearNo" data-id="" >Cancel</button>
               </div>
             </div>
@@ -249,6 +249,7 @@
                 <h5 class="modal-title" id="closeRoomTitle">Close room</h5>
               </div>
               <div class="modal-body">
+                  <p>Patient will be removed if present.</p>
                   <form action="" method="POST">
                       <div class="form-group">
                         <label for="roomCloseComment">Reason for closing:</label>
@@ -287,7 +288,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="closeRoomModalTitle">Close Room?</h5>
+                <h5 class="modal-title" id="closeRoomModalTitle">Assign to New Room</h5>
               </div>
               <div class="modal-body">
                 <p>Move patient to room:</p>
@@ -298,7 +299,7 @@
                   </select>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left moveRoomYes" data-id="" >Move Patient</button>
+                <button type="button" class="btn btn-primary pull-left moveRoomYes" data-id="" >Move Patient</button>
                 <button type="button" class="btn btn-secondary pull-right moveRoomNo" data-id="" >Cancel</button>
               </div>
             </div>

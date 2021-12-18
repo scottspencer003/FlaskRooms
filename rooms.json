@@ -36,17 +36,6 @@
     {
       "room": 4,
       "room_name": "room four",
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "",
-      "comment": ""
-    },
-    {
-      "room": 5,
-      "room_name": "room four",
       "occupied": false,
       "patient_name": "",
       "patient_insurance": "",
@@ -54,6 +43,17 @@
       "visitors": "",
       "admission_date": "",
       "comment": ""
+    },
+    {
+      "room": 5,
+      "room_name": "room four",
+      "occupied": true,
+      "patient_name": "Scott Spencer",
+      "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "12/08/2021",
+      "comment": "New comment"
     },
     {
       "room": 6,
