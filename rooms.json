@@ -36,11 +36,11 @@
     {
       "room": 4,
       "room_name": "room four",
-      "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Tufts",
-      "loc": "Routine/PP",
-      "visitors": "All",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
       "admission_date": "",
       "comment": ""
     },
@@ -48,12 +48,12 @@
       "room": 5,
       "room_name": "room four",
       "occupied": true,
-      "patient_name": "Sam Sherwood",
+      "patient_name": "Scott Spencer",
       "patient_insurance": "Tufts",
       "loc": "Routine/PP",
       "visitors": "All",
-      "admission_date": "",
-      "comment": "Test comment\r\n"
+      "admission_date": "12/08/2021",
+      "comment": "New comment"
     },
     {
       "room": 6,
@@ -86,7 +86,7 @@
       "loc": "---",
       "visitors": "---",
       "admission_date": "---",
-      "comment": "Testing comment update second time\n\n"
+      "comment": "Test\n"
     },
     {
       "room": 9,
