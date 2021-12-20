@@ -187,3 +187,16 @@ def move_room(current_room, new_room):
                 message = "Could not move: This room needs to be opened before a patient can be assigned to it."
 
     return message
+
+
+def get_room_comment(room_num, json_file):
+
+    data = read_file_data(json_file)
+    comment = ""
+
+    for room in data['rooms']:
+        if room['room'] == int(room_num):
+            comment = room['comment']
+
+
+    return comment

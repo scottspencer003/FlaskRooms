@@ -168,11 +168,21 @@
 
 
     $(document).ready(function(){
+
         //Close room open and close modal
         $('.closeRoomBtn').click(function(){
             var roomid = $(this).data('id');
             $('.closeYes').attr('data-id', roomid);
-            $('#closeRoomModal').modal('show');
+            $.ajax({
+                url: '/getRoomComment/',
+                type: 'post',
+                data: {roomid: roomid},
+                success: function(data){
+                    $('#closeRoomModal').modal('show');
+                    $('#roomCloseComment').text(data).show();
+
+                }
+            });
         });
         //Closes modal in cancel is selected
         $('.closeNo').click(function() {

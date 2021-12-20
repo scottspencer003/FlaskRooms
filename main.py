@@ -194,4 +194,18 @@ def moveWaitToRoom():
 
     return message
 
+
+#route that controls the patient update button. Takes the current room number and redirects to the patient form
+@app.route('/getRoomComment/', methods=['POST', 'GET'])
+def getRoomComment():
+    if request.method == "POST":
+        room_num = request.form['roomid']
+        comment = utils.get_room_comment(room_num, "rooms.json")
+
+    return comment
+
+
+
+
+
 app.run(use_reloader=True, debug=True)

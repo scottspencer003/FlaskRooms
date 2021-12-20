@@ -47,13 +47,13 @@
     {
       "room": 5,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
+      "occupied": true,
+      "patient_name": "Sam Sherwood",
+      "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "All",
       "admission_date": "",
-      "comment": ""
+      "comment": "Test comment\r\n"
     },
     {
       "room": 6,
@@ -86,7 +86,7 @@
       "loc": "---",
       "visitors": "---",
       "admission_date": "---",
-      "comment": "Test\n"
+      "comment": "Testing comment update second time\n\n"
     },
     {
       "room": 9,
