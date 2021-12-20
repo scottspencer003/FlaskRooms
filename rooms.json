@@ -58,24 +58,24 @@
     {
       "room": 6,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
+      "comment": "Test closing this room\n"
     },
     {
       "room": 7,
       "room_name": "room four",
       "occupied": true,
-      "patient_name": "Scott Spencer",
-      "patient_insurance": "Medicare",
+      "patient_name": "Test Patient edit",
+      "patient_insurance": "Tufts",
       "loc": "Routine/PP",
       "visitors": "All",
-      "admission_date": "12/15/2021",
-      "comment": "Test "
+      "admission_date": "12/08/2021",
+      "comment": "Test"
     },
     {
       "room": 8,

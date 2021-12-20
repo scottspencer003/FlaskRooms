@@ -196,7 +196,8 @@ def get_room_comment(room_num, json_file):
 
     for room in data['rooms']:
         if room['room'] == int(room_num):
-            comment = room['comment']
+            if room['occupied'] == "closed":
+                comment = room['comment']
 
 
     return comment
