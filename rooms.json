@@ -3,13 +3,13 @@
     {
       "room": 1,
       "room_name": "room one",
-      "occupied": true,
-      "patient_name": "Kennedy the Cat",
-      "patient_insurance": "Medicare",
-      "loc": "Routine/PP",
-      "visitors": "All",
-      "admission_date": "12/9/2021",
-      "comment": "The coolest cat around! Pretty cute too!"
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 2,
@@ -47,13 +47,13 @@
     {
       "room": 5,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": true,
+      "patient_name": "Sadie the Dog",
+      "patient_insurance": "Medicare",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "12/9/2021",
+      "comment": "The coolest cat around! Pretty cute too!"
     },
     {
       "room": 6,

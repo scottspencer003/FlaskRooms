@@ -207,5 +207,5 @@ def getRoomComment():
 
 
 
-
-app.run(use_reloader=True, debug=True)
+if __name__ == '__main__':
+    app.run(use_reloader=True, debug=True, host='0.0.0.0')
