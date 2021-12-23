@@ -36,17 +36,6 @@
     {
       "room": 4,
       "room_name": "room four",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
-    },
-    {
-      "room": 5,
-      "room_name": "room four",
       "occupied": true,
       "patient_name": "Scott Spencer",
       "patient_insurance": "Tufts",
@@ -54,6 +43,17 @@
       "visitors": "All",
       "admission_date": "12/08/2021",
       "comment": "New comment"
+    },
+    {
+      "room": 5,
+      "room_name": "room four",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
     },
     {
       "room": 6,
@@ -201,23 +201,23 @@
     {
       "room": 19,
       "room_name": "room nine",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
-      "comment": ""
+      "occupied": true,
+      "patient_name": "Scott Spencer",
+      "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "All",
+      "admission_date": "12/16/2021",
+      "comment": "Test comment additional info"
     },
     {
       "room": 20,
       "room_name": "room ten",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
-      "admission_date": "",
+      "occupied": "closed",
+      "patient_name": "---",
+      "patient_insurance": "---",
+      "loc": "---",
+      "visitors": "---",
+      "admission_date": "---",
       "comment": ""
     },
     {
