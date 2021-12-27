@@ -13,6 +13,7 @@ room and set the room to vacant status
 
 #import modules
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from cachelib.file import FileSystemCache
 import json
 import os
 import utils
