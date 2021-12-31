@@ -3,15 +3,15 @@
     {
       "slot": 1,
       "occupied": true,
-      "patient_name": "test patient",
+      "patient_name": "J. Jonah Jameson",
       "patient_insurance": "Tufts",
       "loc": "Routine/PP",
-      "currentLocation": "home",
+      "currentLocation": "Daily Bugle",
       "visitors": "All",
-      "waitListAddedDate": "12/10/2021",
-      "approvedBy": "Sam",
-      "contact": "Shawn",
-      "comments": "Test"
+      "waitListAddedDate": "10/04/2021",
+      "approvedBy": "Dr Strange",
+      "contact": "Doc Oc",
+      "comments": ""
     },
     {
       "slot": 2,
