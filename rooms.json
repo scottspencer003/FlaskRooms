@@ -25,6 +25,17 @@
     {
       "room": 3,
       "room_name": "room three",
+      "occupied": false,
+      "patient_name": "",
+      "patient_insurance": "",
+      "loc": "",
+      "visitors": "",
+      "admission_date": "",
+      "comment": ""
+    },
+    {
+      "room": 4,
+      "room_name": "room four",
       "occupied": true,
       "patient_name": "Tony Stark",
       "patient_insurance": "BC/BS",
@@ -91,13 +102,13 @@
     {
       "room": 9,
       "room_name": "room nine",
-      "occupied": false,
-      "patient_name": "",
-      "patient_insurance": "",
-      "loc": "",
-      "visitors": "",
+      "occupied": true,
+      "patient_name": "test patient",
+      "patient_insurance": "Tufts",
+      "loc": "Routine/PP",
+      "visitors": "All",
       "admission_date": "",
-      "comment": ""
+      "comment": "Test"
     },
     {
       "room": 10,
